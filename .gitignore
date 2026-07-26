@@ -2,3 +2,22 @@
 .vercel
 node_modules/
 *.log
+.env
+.env.*
+!.env.example
+
+# Agent workspaces. AGENTS.md documents these as support files, not site source.
+.agents/
+.claude/
+.codex/
+.cursor/
+.gemini/
+.impeccable/
+.graphifyignore
+.rgignore
+
+# Generated tool output
+graphify-out/
+
+# Local dev helper, not deployed
+dev-server.js
