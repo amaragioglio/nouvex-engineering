@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+  <style>
+    .shape { fill: none; stroke: #f7f8f8; stroke-width: 7; }
+    .body { stroke-dasharray: 212; animation: draw-body .7s cubic-bezier(.4, 0, .2, 1) both; }
+    .core { stroke-dasharray: 76; animation: draw-core .35s ease-out .62s both; }
+    .pin { stroke-dasharray: 16; animation: draw-pin .2s ease-out var(--delay) both; }
+    @keyframes draw-body { from { stroke-dashoffset: 212; } to { stroke-dashoffset: 0; } }
+    @keyframes draw-core { from { stroke-dashoffset: 76; } to { stroke-dashoffset: 0; } }
+    @keyframes draw-pin { from { stroke-dashoffset: 16; } to { stroke-dashoffset: 0; } }
+    @media (prefers-reduced-motion: reduce) { .shape { animation: none; stroke-dashoffset: 0; } }
+  </style>
+  <rect class="shape body" x="22.5" y="22.5" width="55" height="55" rx="5"/>
+  <rect class="shape core" x="40.5" y="40.5" width="19" height="19"/>
+  <g class="shape">
+    <line class="pin" style="--delay:.50s" x1="36" y1="23" x2="36" y2="7"/>
+    <line class="pin" style="--delay:.56s" x1="50" y1="23" x2="50" y2="7"/>
+    <line class="pin" style="--delay:.62s" x1="64" y1="23" x2="64" y2="7"/>
+    <line class="pin" style="--delay:.53s" x1="77" y1="36" x2="93" y2="36"/>
+    <line class="pin" style="--delay:.59s" x1="77" y1="50" x2="93" y2="50"/>
+    <line class="pin" style="--delay:.65s" x1="77" y1="64" x2="93" y2="64"/>
+    <line class="pin" style="--delay:.56s" x1="36" y1="77" x2="36" y2="93"/>
+    <line class="pin" style="--delay:.62s" x1="50" y1="77" x2="50" y2="93"/>
+    <line class="pin" style="--delay:.68s" x1="64" y1="77" x2="64" y2="93"/>
+    <line class="pin" style="--delay:.50s" x1="23" y1="36" x2="7" y2="36"/>
+    <line class="pin" style="--delay:.56s" x1="23" y1="50" x2="7" y2="50"/>
+    <line class="pin" style="--delay:.62s" x1="23" y1="64" x2="7" y2="64"/>
+  </g>
+</svg>

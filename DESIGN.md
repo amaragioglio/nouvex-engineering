@@ -6,7 +6,7 @@ The site should feel like an established technical supplier and engineering part
 
 ## Identity
 
-The approved wordmark is `NOUVEX [microchip] ENGINEERING`. Use the supplied horizontal white lockup in the dark navigation and footer, the dark lockup on light surfaces, and the supplied chip artwork for icons and favicons. Preserve the source proportions and clear space; do not recreate the mark with CSS.
+The approved wordmark is `NOUVEX [microchip] ENGINEERING`. The header uses the supplied trace animation with fixed responsive dimensions; the footer uses the static horizontal white lockup. Use the dark lockup on light surfaces and the supplied chip artwork for icons and favicons. Preserve the source proportions and clear space. Motion must respect `prefers-reduced-motion`.
 
 ## Palette
 
