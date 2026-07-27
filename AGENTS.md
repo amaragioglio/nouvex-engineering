@@ -22,4 +22,4 @@ Use the returned nodes as a shortlist, then verify against source. After structu
 
 ## Verification
 
-Run checks proportional to the change. For backend work, use `node --check`, a mocked request or local demo submission, and `git diff --check`. For visual work, test desktop and mobile, the full Scope Engine, navigation, and browser console.
+Run checks proportional to the change. For backend work, use `node --check`, a mocked request or local demo submission, and `git diff --check`. For visual work, test desktop and mobile, the full guided inquiry, navigation, and browser console.

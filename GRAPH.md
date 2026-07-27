@@ -6,8 +6,8 @@ Read this file first. Load only the task-specific files listed below; do not sca
 
 ```mermaid
 flowchart LR
-  V["Visitor"] --> UI["index.html / Scope Engine"]
-  V --> SEO["service pages + privacy"]
+  V["Visitor"] --> UI["index.html / guided inquiry"]
+  V --> SEO["equipment + analysis + prototype + consulting pages"]
   SEO --> UI
   UI -->|"POST /api/leads"| API["api/leads.js"]
   API -->|"store first"| DB["Supabase project_leads"]
@@ -20,8 +20,9 @@ flowchart LR
 
 | Area | Source of truth | Read with |
 |---|---|---|
-| Page, CSS, Scope Engine UI | `index.html` | `DESIGN.md` for visual work; `PRODUCT.md` for messaging |
-| Service and policy pages | `*-*.html`, `privacy.html`, `assets/service-pages.css` | `PRODUCT.md`; preserve verifiable claims only |
+| Homepage and guided inquiry | `index.html` | `DESIGN.md` for visual work; `PRODUCT.md` for claims |
+| Shared visual behavior | `assets/site.css`, `assets/site.js` | `DESIGN.md` |
+| Capability and policy pages | `equipment.html`, `materials-analysis.html`, `prototype-design.html`, `consulting.html`, `privacy.html` | `PRODUCT.md`; preserve provisional boundaries |
 | Search discovery | page metadata, `robots.txt`, `sitemap.xml` | Keep canonical URLs on `www.nouvexengineering.com` |
 | Visual assets | `assets/` | Relevant references only |
 | Lead API, validation, email | `api/leads.js` | `BACKEND.md` |
@@ -34,7 +35,7 @@ flowchart LR
 ## Task routing
 
 - Backend/API/database/email: read `GRAPH.md`, `BACKEND.md`, `api/leads.js`, and `supabase/schema.sql`. Skip `DESIGN.md` and most of `index.html`; inspect only `sendBrief()` when the payload changes.
-- Frontend behavior: read `GRAPH.md` and the relevant `index.html` script functions. Add `BACKEND.md` only when touching submission.
+- Frontend behavior: read `GRAPH.md`, `assets/site.js`, and the relevant `index.html` script functions. Add `BACKEND.md` only when touching submission.
 - Visual/layout/copy: read `GRAPH.md`, `PRODUCT.md`, `DESIGN.md`, and targeted `index.html` sections. Do not read backend implementation.
 - Local testing: read `GRAPH.md`, `BACKEND.md`, and `dev-server.js`.
 - Deployment: read `GRAPH.md`, `BACKEND.md`, `vercel.json`, and `.env.example`.
@@ -50,7 +51,7 @@ name, company, email, sourceUrl, website
 
 `website` must remain empty; it is the honeypot. Successful responses contain `accepted`, `reference`, and `notificationSent`. The backend derives the route label, validates all public input, stores the lead before sending email, and keeps secrets server-side.
 
-Frontend/backend shared boundary: `index.html` owns `sendBrief()` and user-facing states; `api/leads.js` owns validation, persistence, notification, and HTTP responses. Coordinate before renaming payload fields.
+Frontend/backend shared boundary: `index.html` owns `sendInquiry()` and user-facing states; `api/leads.js` owns validation, persistence, notification, and HTTP responses. Coordinate before renaming payload fields.
 
 ## Commands
 

@@ -35,4 +35,4 @@ revoke all on table public.project_leads from anon, authenticated;
 grant select, insert, update on table public.project_leads to service_role;
 
 comment on table public.project_leads is
-  'Qualified B2B inquiries submitted through the Nouvex Scope Engine.';
+  'Qualified B2B inquiries submitted through the Nouvex guided inquiry.';

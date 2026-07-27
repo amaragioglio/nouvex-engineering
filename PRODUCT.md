@@ -8,40 +8,47 @@ web
 
 ## Users
 
-Primary users are technical buyers, plant and maintenance engineers, operators, product founders, and small manufacturing teams who need a mechanical engineering partner for design, analysis, prototypes, or failure investigation. They arrive with an unresolved mechanical problem and need to turn it into a scoped project brief.
+Primary users are laboratory buyers, technical and quality teams, cleanroom operators, research groups, manufacturers, and organizations that need equipment, materials analysis, prototype design, or engineering project support.
 
 ## Product Purpose
 
-Nouvex Engineering is a static website for a precision mechanical engineering consultancy. Its main interaction is the Scope Engine, a questionnaire that generates a project brief and submits it to `/api/leads` for Nouvex review. Success means a qualified visitor understands the offer quickly, trusts the technical positioning, and submits or copies a useful brief.
+Nouvex Engineering is a static B2B website that explains four capability routes and converts an incomplete technical need into a structured inquiry. The guided inquiry submits to `/api/leads` for storage and email follow-up.
 
 ## Positioning
 
-Nouvex positions itself around mechanical engineering scoping by someone who works in drawings, loads, tolerances, and failure modes, not around generic consulting language.
+Nouvex is positioned as a technical equipment supplier and engineering-support company, not as the manufacturer of every product and not as an undifferentiated online store.
 
-The four routes are mechanical design and CAD, simulation and analysis, prototypes and fixtures, and failure analysis. The site must not claim laboratory, cleanroom, semiconductor-fab, or materials-characterization capability (SEM, TEM, EDX, XRD, ICP-MS, TOF-SIMS), which the practice does not have.
+The four public routes are:
+
+1. Laboratory and cleanroom equipment
+2. Materials analysis
+3. CAD and prototype design
+4. Engineering consulting
 
 ## Operating Context
 
-The site is a static HTML/CSS/JavaScript website deployed on Vercel without a build step. The home page owns the Scope Engine, while focused pages explain each of the four service routes and link back to the inquiry flow. The core workflow is: understand the engineering offer, inspect the relevant service, answer Scope Engine prompts, review a generated brief, and send or copy that brief.
+The site is static HTML, CSS, and JavaScript deployed on Vercel without a build step. The homepage introduces the offer and owns the guided inquiry. Separate pages explain each route and return visitors to that inquiry.
 
-## Capabilities and Constraints
+## Current Product Constraints
 
-The site must remain a static website with no build process. The Scope Engine questionnaire and its brief handoff are core functionality. Existing deployment configuration lives in `vercel.json`.
+The initial equipment catalog is provisional and category-level only. Do not publish specific manufacturers, models, prices, availability, certifications, authorization status, warranties, installation scope, or delivery claims until Jairo confirms them.
 
-The Scope Engine route keys (`equipment`, `analysis`, `prototyping`, `strategy`) and the three timeline strings are a hard contract with the `allowedRoutes` and `allowedTimelines` allowlists in `api/leads.js`. Visible labels are free to change; these keys and strings are not, unless both sides change together.
+Do not claim that stock photographs show Nouvex facilities, personnel, products, or projects. Do not claim that analysis uses a specific instrument or is performed in-house until the operating arrangement and technique are confirmed.
+
+The inquiry route keys (`equipment`, `analysis`, `prototyping`, `strategy`) and timeline strings are a hard contract between `index.html` and `api/leads.js`.
 
 ## Brand Commitments
 
-The product name is Nouvex Engineering. Existing durable phrase: "Precision · Analysis · Engineered Solutions." The site should feel less generic while preserving a technical, high-precision engineering posture.
+The product name is Nouvex Engineering. The working identity uses a horizontal wordmark with a microchip symbol. The public experience should feel clean, established, technical, and direct: photography-led, conventional navigation, clear service naming, and restrained motion.
 
 ## Evidence on Hand
 
-Repository evidence includes `README.md`, `index.html`, and `vercel.json`. No customer names, metrics, certifications, case studies, or third-party proof assets are present, so future work must not fabricate them.
+Evidence includes the BIOBASE overview catalog supplied by the owner, a provisional wordmark reference, and the Pen-Tec website as visual direction only. No customer names, metrics, certifications, authorization letters, case studies, product selection, founder biography, facility photographs, or third-party proof assets are currently approved for publication.
 
 ## Product Principles
 
-Lead with engineered specificity over broad consultancy claims.
-Make the Scope Engine the proof of how Nouvex thinks.
-Keep the path from technical problem to scoped inquiry short.
-Preserve trust by separating real facts from illustrative or synthetic examples.
-Favor static durability and fast loading over framework complexity.
+- Lead with the application and customer decision, not a model number.
+- Keep equipment sourcing and engineering judgment in the same conversation.
+- Use modest, verifiable claims and mark provisional catalog boundaries clearly.
+- Make the inquiry useful without requiring perfect specifications.
+- Favor static durability, fast loading, and clear information architecture.

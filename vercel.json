@@ -1,6 +1,12 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/mechanical-design-cad", "destination": "/prototype-design", "permanent": true },
+    { "source": "/prototypes-fixtures", "destination": "/prototype-design", "permanent": true },
+    { "source": "/fea-simulation", "destination": "/consulting", "permanent": true },
+    { "source": "/failure-analysis", "destination": "/materials-analysis", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",

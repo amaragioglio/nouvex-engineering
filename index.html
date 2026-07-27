@@ -1,1112 +1,425 @@
 <!doctype html>
-<!--
-THESIS: Nouvex is shown as a scoping instrument, not a generic consulting brochure.
-OWN-WORLD: matte graphite, calibrated paper, cobalt ink, amber routing signals, ruled plates, and measured controls.
-STORY: a visitor sees how an unresolved engineering problem becomes a routed brief, then uses the Scope Engine.
-FIRST VIEWPORT: brand and offer sit beside an active diagnostic plate with the first Scope Engine decision visible.
-FORM: replacement landing, persuade mode, staged as a diagnostic comparison plate; seed key 9f2a18fb.
--->
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mechanical Engineering Services | Nouvex Engineering</title>
-  <meta name="description" content="Scope mechanical design, FEA, prototyping, fixtures, and failure analysis projects with Nouvex Engineering before requesting a quote.">
+  <title>Laboratory Equipment & Engineering | Nouvex Engineering</title>
+  <meta name="description" content="Nouvex supports laboratories and technical teams with equipment sourcing, materials analysis, CAD and prototype design, and engineering consulting.">
   <meta name="robots" content="index,follow,max-image-preview:large">
-  <meta name="theme-color" content="#101216">
+  <meta name="theme-color" content="#0c1117">
   <link rel="canonical" href="https://www.nouvexengineering.com/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="preload" as="image" href="/assets/hero-cleanroom.webp" type="image/webp">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Nouvex Engineering">
-  <meta property="og:title" content="Mechanical Engineering Services | Nouvex Engineering">
-  <meta property="og:description" content="Scope mechanical design, FEA, prototyping, fixtures, and failure analysis projects before requesting a quote.">
+  <meta property="og:title" content="Laboratory Equipment & Engineering | Nouvex Engineering">
+  <meta property="og:description" content="Equipment, analysis, and engineering support for laboratories and technical environments.">
   <meta property="og:url" content="https://www.nouvexengineering.com/">
-  <meta property="og:image" content="https://www.nouvexengineering.com/assets/tolerance.jpg">
-  <meta property="og:image:width" content="1600">
-  <meta property="og:image:height" content="1067">
-  <meta property="og:image:alt" content="Precision CNC tool aligned over a measurement scale">
+  <meta property="og:image" content="https://www.nouvexengineering.com/assets/hero-cleanroom.webp">
+  <meta property="og:image:alt" content="Technicians working inside a controlled cleanroom environment">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Mechanical Engineering Services | Nouvex Engineering">
-  <meta name="twitter:description" content="Scope mechanical design, FEA, prototyping, fixtures, and failure analysis projects before requesting a quote.">
-  <meta name="twitter:image" content="https://www.nouvexengineering.com/assets/tolerance.jpg">
+  <meta name="twitter:title" content="Laboratory Equipment & Engineering | Nouvex Engineering">
+  <meta name="twitter:description" content="Equipment, analysis, and engineering support for laboratories and technical environments.">
+  <meta name="twitter:image" content="https://www.nouvexengineering.com/assets/hero-cleanroom.webp">
   <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Organization","name":"Nouvex Engineering","legalName":"Nouvex Engineering LLC","url":"https://www.nouvexengineering.com/","email":"info@nouvexeng.com","logo":"https://www.nouvexengineering.com/assets/nouvex-mark.svg","contactPoint":{"@type":"ContactPoint","contactType":"sales","email":"info@nouvexeng.com"}}
+    {"@context":"https://schema.org","@type":"Organization","name":"Nouvex Engineering","legalName":"Nouvex Engineering LLC","url":"https://www.nouvexengineering.com/","email":"info@nouvexeng.com","logo":"https://www.nouvexengineering.com/assets/nouvex-mark.svg","contactPoint":{"@type":"ContactPoint","contactType":"sales","email":"info@nouvexeng.com"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Technical services","itemListElement":[{"@type":"OfferCatalog","name":"Laboratory and cleanroom equipment"},{"@type":"OfferCatalog","name":"Materials analysis"},{"@type":"OfferCatalog","name":"CAD and prototype design"},{"@type":"OfferCatalog","name":"Engineering consulting"}]}}
   </script>
-  <style>
-    :root {
-      color-scheme: dark;
-      --graphite: #101216;
-      --panel: #171b20;
-      --panel-2: #20262d;
-      --paper: #eef0e7;
-      --paper-dim: #c7cdbf;
-      --line: rgba(238, 240, 231, .16);
-      --line-strong: rgba(238, 240, 231, .38);
-      --cobalt: #2e79ff;
-      --cobalt-soft: rgba(46, 121, 255, .16);
-      --amber: #f2a51a;
-      --amber-soft: rgba(242, 165, 26, .16);
-      --oxide: #f05b3f;
-      --ok: #48d6a3;
-      --shadow: 0 26px 80px rgba(0, 0, 0, .42);
-      --radius: 10px;
-      --wrap: min(1180px, calc(100vw - 40px));
-      font-family: "Aptos", "Segoe UI", system-ui, sans-serif;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background:
-        linear-gradient(135deg, rgba(238, 240, 231, .055) 1px, transparent 1px),
-        var(--graphite);
-      background-size: 34px 34px, auto;
-      color: var(--paper);
-    }
-
-    /* Calibration rule: the ruled tick strip that ties the page to the inspection photo. */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0 0 auto 0;
-      height: 9px;
-      z-index: 30;
-      pointer-events: none;
-      background-image:
-        repeating-linear-gradient(90deg, rgba(242, 165, 26, .6) 0 1px, transparent 1px 120px),
-        repeating-linear-gradient(90deg, var(--line-strong) 0 1px, transparent 1px 12px);
-      background-size: 100% 9px, 100% 4px;
-      background-repeat: no-repeat;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    button, input, textarea { font: inherit; }
-    .wrap { width: var(--wrap); margin: 0 auto; }
-    .service-link { text-decoration: underline; text-decoration-color: var(--amber); text-underline-offset: 5px; }
-    .website-field { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
-    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
-    .footer-links a:hover, .footer-links a:focus-visible { color: var(--amber); }
-
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(18px);
-      background: rgba(16, 18, 22, .76);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .nav-inner {
-      height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      letter-spacing: .01em;
-    }
-
-    /* Monogram: two paper rails with one amber signal routed between them. */
-    .mark { width: 34px; height: 34px; display: block; overflow: visible; }
-    .mark path { fill: none; stroke-linecap: square; }
-    .mark .rail { stroke: var(--paper); stroke-width: 3.4; }
-    .mark .trace { stroke: var(--amber); stroke-width: 3.4; }
-    .mark .reg { stroke: var(--line-strong); stroke-width: 1.4; }
-    .brand:hover .mark .trace { stroke-dasharray: 26; stroke-dashoffset: 26; animation: route .5s cubic-bezier(.16, 1, .3, 1) forwards; }
-
-    @keyframes route { to { stroke-dashoffset: 0; } }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--paper-dim);
-      font-size: .92rem;
-    }
-
-    .nav-links a { padding: 10px 12px; border-radius: 8px; }
-    .nav-links a:hover { background: rgba(238, 240, 231, .07); color: var(--paper); }
-
-    .hero {
-      position: relative;
-      isolation: isolate;
-      min-height: calc(100vh - 72px);
-      display: grid;
-      align-items: center;
-      padding: 64px 0 46px;
-    }
-
-    /* Contour field: an ambient measurement surface, never a foreground effect.
-       Two nested masks keep it off the headline and off the Scope Engine plate. */
-    .hero-field {
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      overflow: hidden;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 1.4s ease;
-      -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 80%, transparent 100%);
-      mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 80%, transparent 100%);
-    }
-
-    .hero-field.on { opacity: .32; }
-
-    .hero-field-inner {
-      position: absolute;
-      inset: 0;
-      -webkit-mask-image: radial-gradient(ellipse 62% 58% at 27% 52%, transparent 30%, #000 82%);
-      mask-image: radial-gradient(ellipse 62% 58% at 27% 52%, transparent 30%, #000 82%);
-    }
-
-    .hero-field iframe {
-      display: block;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, .9fr) minmax(420px, 1.1fr);
-      gap: 42px;
-      align-items: center;
-    }
-
-    .kicker {
-      width: fit-content;
-      color: var(--amber);
-      border: 1px solid rgba(242, 165, 26, .42);
-      background: var(--amber-soft);
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: .82rem;
-      font-weight: 700;
-    }
-
-    h1 {
-      margin: 24px 0 22px;
-      max-width: 11ch;
-      font-size: clamp(3.5rem, 8.5vw, 6rem);
-      line-height: .88;
-      letter-spacing: -.035em;
-    }
-
-    .lead {
-      max-width: 62ch;
-      color: var(--paper-dim);
-      font-size: clamp(1.05rem, 1.7vw, 1.22rem);
-      line-height: 1.62;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 12px;
-      margin-top: 30px;
-    }
-
-    .btn {
-      border: 0;
-      min-height: 48px;
-      border-radius: 8px;
-      padding: 0 18px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      cursor: pointer;
-      font-weight: 800;
-      transition: transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
-    }
-
-    .btn:hover { transform: translateY(-2px); }
-    .btn:focus-visible, input:focus-visible, textarea:focus-visible, .option:focus-visible, .chip:focus-visible {
-      outline: 3px solid rgba(46, 121, 255, .5);
-      outline-offset: 3px;
-    }
-
-    .btn-primary { background: var(--amber); color: #111; box-shadow: 0 14px 40px rgba(242, 165, 26, .24); }
-    .btn-secondary { background: rgba(238, 240, 231, .08); color: var(--paper); border: 1px solid var(--line-strong); }
-    .btn-quiet { background: transparent; color: var(--paper-dim); border: 1px solid var(--line); }
-
-    .meta-strip {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      margin-top: 42px;
-      background: var(--line);
-      border: 1px solid var(--line);
-    }
-
-    .meta {
-      background: rgba(16, 18, 22, .84);
-      padding: 16px;
-    }
-
-    .meta b { display: block; margin-bottom: 5px; font-size: 1.02rem; }
-    .meta span { color: var(--paper-dim); font-size: .85rem; }
-
-    .plate {
-      position: relative;
-      /* Opaque base: the working instrument must not read as translucent over the hero field. */
-      background:
-        linear-gradient(90deg, rgba(238, 240, 231, .06) 1px, transparent 1px),
-        linear-gradient(0deg, rgba(238, 240, 231, .05) 1px, transparent 1px),
-        linear-gradient(145deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .015)),
-        linear-gradient(0deg, var(--graphite), var(--graphite));
-      background-size: 22px 22px, 22px 22px, auto, auto;
-      border: 1px solid var(--line-strong);
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .plate-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 18px;
-      border-bottom: 1px solid var(--line);
-      background: rgba(238, 240, 231, .045);
-    }
-
-    .plate-title { font-weight: 900; }
-    .plate-ref { color: var(--amber); font-size: .82rem; }
-    .scope-body { padding: 18px; }
-
-    .route-line {
-      display: grid;
-      grid-template-columns: 74px 1fr 74px;
-      gap: 12px;
-      align-items: center;
-      margin-bottom: 18px;
-    }
-
-    .node {
-      min-height: 58px;
-      border: 1px solid var(--line-strong);
-      background: rgba(16, 18, 22, .76);
-      display: grid;
-      place-items: center;
-      border-radius: 8px;
-      color: var(--paper-dim);
-      font-weight: 900;
-    }
-
-    .node.hot { color: #111; background: var(--amber); border-color: transparent; }
-
-    .trace {
-      position: relative;
-      height: 4px;
-      background: rgba(238, 240, 231, .14);
-    }
-
-    .trace::after {
-      content: "";
-      position: absolute;
-      inset: 0 auto 0 0;
-      width: var(--progress, 18%);
-      background: var(--cobalt);
-      box-shadow: 0 0 18px rgba(46, 121, 255, .45);
-      transition: width .35s ease;
-    }
-
-    .question {
-      font-size: clamp(1.55rem, 3vw, 2.35rem);
-      line-height: 1.05;
-      letter-spacing: -.025em;
-      margin: 0 0 10px;
-    }
-
-    .help { margin: 0 0 18px; color: var(--paper-dim); line-height: 1.55; }
-
-    .options, .chips {
-      display: grid;
-      gap: 10px;
-    }
-
-    .option, .chip {
-      text-align: left;
-      color: var(--paper);
-      border: 1px solid var(--line);
-      background: rgba(16, 18, 22, .74);
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background .18s ease, border-color .18s ease, transform .18s ease;
-    }
-
-    .option {
-      display: grid;
-      grid-template-columns: 42px 1fr;
-      gap: 12px;
-      align-items: center;
-      padding: 13px;
-    }
-
-    .option:hover, .chip:hover { transform: translateY(-1px); border-color: rgba(242, 165, 26, .58); }
-    .option.selected, .chip.selected { background: var(--cobalt-soft); border-color: var(--cobalt); }
-    .option .symbol { color: var(--amber); font-weight: 900; }
-    .option b { display: block; }
-    .option span:last-child { color: var(--paper-dim); font-size: .88rem; line-height: 1.35; }
-
-    .chips { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .chip { padding: 12px 13px; }
-
-    .fields { display: grid; gap: 13px; }
-    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
-    label { display: block; margin: 0 0 6px; color: var(--paper-dim); font-size: .84rem; }
-    input, textarea {
-      width: 100%;
-      color: var(--paper);
-      background: rgba(16, 18, 22, .78);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 12px;
-    }
-    textarea { min-height: 116px; resize: vertical; line-height: 1.5; }
-
-    .plate-foot {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 16px 18px;
-      border-top: 1px solid var(--line);
-      background: rgba(16, 18, 22, .68);
-    }
-
-    .hint { color: var(--paper-dim); font-size: .9rem; }
-    .foot-actions { display: flex; gap: 10px; }
-
-    .section {
-      padding: 90px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .section-head {
-      display: grid;
-      grid-template-columns: minmax(0, .8fr) minmax(0, 1fr);
-      gap: 38px;
-      margin-bottom: 34px;
-      align-items: end;
-    }
-
-    h2 {
-      margin: 0;
-      font-size: clamp(2rem, 4.5vw, 4rem);
-      line-height: .95;
-      letter-spacing: -.032em;
-    }
-
-    .section-head p, .section-copy {
-      color: var(--paper-dim);
-      line-height: 1.7;
-      margin: 0;
-      max-width: 68ch;
-    }
-
-    .proof-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    .calibration-card {
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: rgba(23, 27, 32, .88);
-      padding: 22px;
-    }
-
-    .calibration-card h3 { margin: 0 0 12px; font-size: 1.35rem; }
-    .calibration-card p { margin: 0; color: var(--paper-dim); line-height: 1.62; }
-
-    .industries {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .industry {
-      color: var(--paper);
-      background: rgba(238, 240, 231, .07);
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 9px 12px;
-    }
-
-    .brief {
-      border: 1px solid var(--line-strong);
-      background: rgba(238, 240, 231, .94);
-      color: #111;
-      border-radius: 10px;
-      padding: 18px;
-    }
-
-    .brief h3 { margin: 0 0 12px; font-size: 1.3rem; }
-    .brief-grid { display: grid; gap: 1px; background: rgba(17, 17, 17, .16); }
-    .brief-row { display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding: 10px; background: var(--paper); }
-    .brief-row b { color: #333; }
-    .brief-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
-    /* The brief reverses to paper, so the dark-surface button colours would vanish here. */
-    .brief .btn-secondary { background: transparent; color: #111; border-color: rgba(17, 17, 17, .28); }
-    .brief .btn-quiet { color: #3a3f3b; border-color: rgba(17, 17, 17, .16); }
-    .brief .btn-secondary:hover { background: rgba(17, 17, 17, .06); }
-    .brief .btn-quiet:hover { background: rgba(17, 17, 17, .04); color: #111; }
-
-    .contact-band {
-      padding: 70px 0;
-      background: var(--paper);
-      color: #111;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 24px;
-      align-items: center;
-    }
-
-    .contact-grid h2 { max-width: 12ch; }
-    .contact-grid p { max-width: 62ch; line-height: 1.6; color: #3a3f3b; }
-    .contact-grid .btn-secondary { color: #111; border-color: rgba(17, 17, 17, .22); background: transparent; }
-
-    footer {
-      padding: 26px 0;
-      color: var(--paper-dim);
-      border-top: 1px solid var(--line);
-    }
-
-    /* Routed capability index: rails and rows, not a grid of equal cards. */
-    .index { border-top: 1px solid var(--line-strong); }
-
-    .row {
-      display: grid;
-      grid-template-columns: 116px minmax(0, .9fr) minmax(0, 1.15fr);
-      gap: 30px;
-      align-items: start;
-      padding: 28px 0;
-      border-bottom: 1px solid var(--line);
-      transition: background .28s ease;
-    }
-
-    .row:hover { background: rgba(238, 240, 231, .035); }
-    .row .code { color: var(--amber); font-weight: 900; font-size: .85rem; letter-spacing: .04em; }
-    .row h3 { margin: 0 0 8px; font-size: 1.5rem; line-height: 1.12; letter-spacing: -.022em; }
-    .row p { margin: 0; color: var(--paper-dim); line-height: 1.55; }
-    .caps { display: flex; flex-wrap: wrap; gap: 8px; }
-    .cap {
-      color: var(--paper-dim);
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 6px 11px;
-      font-size: .85rem;
-    }
-    .row:hover .cap { border-color: rgba(242, 165, 26, .34); }
-
-    /* Specimen band: the inspection photo enters the instrument through its own ruled grid. */
-    .specimen {
-      position: relative;
-      min-height: min(62vh, 540px);
-      display: grid;
-      align-items: end;
-      overflow: hidden;
-      border-block: 1px solid var(--line-strong);
-      isolation: isolate;
-    }
-
-    .specimen img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 46%;
-      filter: grayscale(1) contrast(1.14) brightness(.66);
-      z-index: -2;
-    }
-
-    .specimen::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      /* Neutral graphite only. Amber stays on the rule and the scan line, per the signal rarity rule. */
-      background:
-        repeating-linear-gradient(90deg, rgba(238, 240, 231, .028) 0 1px, transparent 1px 44px),
-        linear-gradient(180deg, rgba(16, 18, 22, .52) 0%, rgba(16, 18, 22, .34) 34%, rgba(16, 18, 22, .96) 100%);
-    }
-
-    .specimen-copy { padding: 42px 0 38px; }
-    .specimen-copy h2 { max-width: 16ch; }
-    .specimen-copy p { margin: 16px 0 0; max-width: 60ch; color: var(--paper); line-height: 1.62; }
-
-    .specimen-ref {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 18px;
-      color: var(--amber);
-      font-size: .85rem;
-      font-weight: 700;
-    }
-
-    .specimen-ref::before {
-      content: "";
-      width: 46px;
-      height: 1px;
-      background: var(--amber);
-    }
-
-    .scan {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      width: 2px;
-      opacity: 0;
-      background: var(--amber);
-      box-shadow: 0 0 26px 5px rgba(242, 165, 26, .5);
-      will-change: transform;
-    }
-
-    /* Honest replacement for the removed decorative meters. */
-    .spec-list { display: grid; gap: 1px; margin-top: 18px; background: var(--line); }
-    .spec {
-      display: grid;
-      grid-template-columns: 118px 1fr;
-      gap: 14px;
-      padding: 11px 0;
-      background: var(--panel);
-      color: var(--paper-dim);
-      font-size: .9rem;
-      line-height: 1.45;
-    }
-    .spec b { color: var(--paper); font-weight: 700; }
-
-    /* Motion: default is visible; the reveal only exists once JS confirms it can run. */
-    .js .reveal {
-      opacity: 0;
-      transform: translateY(16px);
-      transition: opacity .72s cubic-bezier(.16, 1, .3, 1), transform .72s cubic-bezier(.16, 1, .3, 1);
-      transition-delay: var(--d, 0ms);
-    }
-    .js .reveal.in { opacity: 1; transform: none; }
-
-    .js .specimen img { clip-path: inset(0 100% 0 0); transition: clip-path 1.05s cubic-bezier(.16, 1, .3, 1); }
-    .js .specimen.in img { clip-path: inset(0 0 0 0); }
-    .js .specimen.in .scan { animation: sweep 1.05s cubic-bezier(.16, 1, .3, 1) forwards; }
-
-    /* Composited transform, not `left` — this sweeps the full height of the band. */
-    @keyframes sweep {
-      0% { transform: translateX(0); opacity: 1; }
-      88% { opacity: 1; }
-      100% { transform: translateX(100vw); opacity: 0; }
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid, .section-head, .proof-grid, .contact-grid { grid-template-columns: 1fr; }
-      .hero { min-height: auto; }
-      .row { grid-template-columns: 96px minmax(0, 1fr); gap: 10px 22px; }
-      .row .caps { grid-column: 2; margin-top: 4px; }
-      .specimen { min-height: 60vh; }
-    }
-
-    @media (max-width: 700px) {
-      :root { --wrap: min(100vw - 28px, 1180px); }
-      .nav-inner { height: auto; padding: 14px 0; align-items: flex-start; }
-      .nav-links { display: none; }
-      .hero { padding-top: 36px; }
-      h1 { font-size: clamp(3rem, 18vw, 4.2rem); max-width: 9ch; }
-      .meta-strip, .chips, .field-row { grid-template-columns: 1fr; }
-      .plate-head, .plate-foot { align-items: flex-start; flex-direction: column; }
-      .foot-actions, .actions { width: 100%; }
-      .btn { width: 100%; }
-      .route-line { grid-template-columns: 54px 1fr 54px; }
-      .brief-row { grid-template-columns: 1fr; gap: 4px; }
-      .section { padding: 66px 0; }
-      .row { grid-template-columns: 1fr; gap: 12px; padding: 24px 0; }
-      .row .caps { grid-column: 1; }
-      .spec { grid-template-columns: 1fr; gap: 2px; }
-      .specimen { min-height: 68vh; }
-      .specimen-copy { padding: 34px 0 30px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition: none !important; animation: none !important; }
-      /* Reveals must not strand content at opacity 0 once transitions are disabled. */
-      .js .reveal { opacity: 1; transform: none; }
-      .js .specimen img { clip-path: none; }
-      .scan { display: none; }
-    }
-  </style>
-  <!-- Set before first paint so reveals never flash in, and stay visible if JS never runs. -->
-  <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
-  <header class="nav">
-    <div class="wrap nav-inner">
-      <a class="brand" href="#top" aria-label="Nouvex Engineering home">
-        <svg class="mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-          <path class="reg" d="M1 7V1h6M31 25v6h-6"/>
-          <path class="rail" d="M8 25V7M24 25V7"/>
-          <path class="trace" d="M8 7l16 18"/>
-        </svg>
-        <span>Nouvex Engineering</span>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap nav-shell">
+      <a class="brand" href="/" aria-label="Nouvex Engineering home">
+        <span class="brand-words"><span>Nouvex</span><span class="logo-chip" aria-hidden="true"><span></span></span><span>Engineering</span></span>
       </a>
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#deliver">Capabilities</a>
-        <a href="#scope">Scope Engine</a>
-        <a href="#fit">Fit</a>
-        <a href="mailto:info@nouvexeng.com">Contact</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="primaryNav">Menu</button>
+      <nav class="primary-nav" id="primaryNav" aria-label="Primary navigation">
+        <a href="/equipment">Equipment</a>
+        <a href="/materials-analysis">Materials analysis</a>
+        <a href="/prototype-design">Prototype design</a>
+        <a href="/consulting">Consulting</a>
+        <a class="nav-cta" href="#inquiry">Request a quote</a>
       </nav>
     </div>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="hero-field" aria-hidden="true"><div class="hero-field-inner"></div></div>
-      <div class="wrap hero-grid">
-        <div>
-          <div class="kicker">Precision · Analysis · Engineered Solutions</div>
-          <h1>Mechanical engineering, scoped before the quote.</h1>
-          <p class="lead">Nouvex turns mechanical design, simulation, prototyping, and failure-analysis needs into a routed engineering brief before the first quote. Less brochure. More signal.</p>
-          <div class="actions">
-            <a class="btn btn-primary" href="#scope">Run Scope Engine</a>
-            <a class="btn btn-secondary" href="mailto:info@nouvexeng.com">Email Nouvex</a>
-          </div>
-          <div class="meta-strip" aria-label="Project routing summary">
-            <div class="meta"><b>01</b><span>Mechanical design and CAD</span></div>
-            <div class="meta"><b>02</b><span>Simulation and analysis</span></div>
-            <div class="meta"><b>03</b><span>Prototypes, fixtures, and failure review</span></div>
-          </div>
+  <main id="main">
+    <section class="hero" aria-labelledby="heroTitle">
+      <img src="/assets/hero-cleanroom.webp" alt="Technicians working inside a controlled cleanroom environment" width="2400" height="1600" fetchpriority="high">
+      <div class="wrap hero-content">
+        <p class="eyebrow">Equipment · Analysis · Engineering</p>
+        <h1 id="heroTitle">Laboratory equipment. Engineering support.</h1>
+        <p class="hero-copy">Nouvex helps laboratories and technical teams source equipment, understand materials, develop prototypes, and move complex projects forward.</p>
+        <div class="actions">
+          <a class="button button-primary" href="#inquiry">Discuss a project</a>
+          <a class="button button-light" href="/equipment">Explore equipment</a>
         </div>
+      </div>
+    </section>
 
-        <form class="plate" id="scope" aria-label="Scope Engine" novalidate>
-          <div class="plate-head">
-            <div>
-              <div class="plate-title">Scope Engine</div>
-              <div class="plate-ref">Project inquiry - <span id="refId"></span></div>
-            </div>
-            <div class="kicker" id="stepLabel">Step 1 of 4</div>
+    <section class="intro-band" aria-label="Nouvex approach">
+      <div class="wrap intro-grid">
+        <p class="eyebrow">One technical point of contact</p>
+        <p>Nouvex brings product sourcing and engineering judgment into the same conversation, helping buyers define what they need before selecting equipment or committing to a project path.</p>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>Four ways to move the work forward.</h2>
+          <p>Start with the outcome, not a catalog number. Nouvex routes each inquiry to the right equipment, analysis, design, or consulting conversation.</p>
+        </div>
+        <div class="service-index">
+          <a class="service-row reveal" href="/equipment">
+            <span class="service-number">01 / Supply</span>
+            <h3>Laboratory &amp; cleanroom equipment</h3>
+            <p>Source a focused range of containment, sterilization, cold-storage, core laboratory, and analytical equipment.</p>
+            <span class="service-arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="service-row reveal" href="/materials-analysis">
+            <span class="service-number">02 / Characterize</span>
+            <h3>Materials analysis</h3>
+            <p>Frame a materials question around microscopy, X-ray methods, surface characterization, and the evidence needed for a decision.</p>
+            <span class="service-arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="service-row reveal" href="/prototype-design">
+            <span class="service-number">03 / Develop</span>
+            <h3>CAD &amp; prototype design</h3>
+            <p>Turn a requirement or early concept into defined geometry, technical drawings, and a practical prototype plan.</p>
+            <span class="service-arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="service-row reveal" href="/consulting">
+            <span class="service-number">04 / Support</span>
+            <h3>Engineering consulting</h3>
+            <p>Add technical structure to equipment selection, laboratory planning, vendor evaluation, troubleshooting, or project execution.</p>
+            <span class="service-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="equipment">
+      <div class="wrap equipment-layout">
+        <div class="equipment-copy reveal">
+          <p class="eyebrow">Equipment categories</p>
+          <h2>A focused catalog, built around the application.</h2>
+          <p>The initial Nouvex range is organized by equipment family. Exact models, specifications, availability, and commercial terms are confirmed during the inquiry.</p>
+          <a class="button button-dark" href="/equipment">View equipment families</a>
+        </div>
+        <div class="category-list">
+          <article class="category reveal"><b>01</b><div><h3>Airflow &amp; containment</h3><p>Biological safety cabinets, laminar flow cabinets, fume hoods, pass boxes, air showers, and related controlled-environment equipment.</p></div></article>
+          <article class="category reveal"><b>02</b><div><h3>Sterilization &amp; thermal processing</h3><p>Autoclaves, sterilizers, drying ovens, incubators, and temperature-controlled processing equipment.</p></div></article>
+          <article class="category reveal"><b>03</b><div><h3>Cold storage &amp; sample preservation</h3><p>Laboratory refrigerators, freezers, transport systems, and supporting storage accessories.</p></div></article>
+          <article class="category reveal"><b>04</b><div><h3>Core laboratory equipment</h3><p>Centrifuges, balances, water baths, pumps, mixers, and common sample-preparation equipment.</p></div></article>
+          <article class="category reveal"><b>05</b><div><h3>Optical &amp; analytical instruments</h3><p>Microscopes, spectrophotometers, and selected instruments for laboratory measurement and observation.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="media-band" aria-labelledby="analysisTitle">
+      <div class="media-image"><img src="/assets/materials-microscope.webp" alt="Researcher observing a sample through an optical microscope" loading="lazy" decoding="async" width="1800" height="2700"></div>
+      <div class="media-copy">
+        <div class="media-copy-inner reveal">
+          <p class="eyebrow">Materials analysis</p>
+          <h2 id="analysisTitle">Start with the question the material must answer.</h2>
+          <p>Nouvex helps define the observation, comparison, or failure question before selecting an analysis path. The exact method and deliverable are confirmed during scoping.</p>
+          <ul class="signal-list">
+            <li>Microscopy and visual characterization</li>
+            <li>X-ray analysis methods</li>
+            <li>Surface analysis and characterization</li>
+            <li>Sample preparation and result interpretation</li>
+          </ul>
+          <div class="actions"><a class="button button-light" href="/materials-analysis">Explore materials analysis</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="media-band reverse" aria-labelledby="prototypeTitle">
+      <div class="media-image"><img src="/assets/prototype-cad.webp" alt="Designer developing a technical product concept on a computer" loading="lazy" decoding="async" width="1800" height="1200"></div>
+      <div class="media-copy">
+        <div class="media-copy-inner reveal">
+          <p class="eyebrow">CAD &amp; prototype design</p>
+          <h2 id="prototypeTitle">Define the idea before you build it.</h2>
+          <p>Translate requirements into CAD, drawings, interfaces, and a prototype approach that can be reviewed before manufacturing decisions are made.</p>
+          <ul class="signal-list">
+            <li>Concept development</li>
+            <li>Part and assembly modeling</li>
+            <li>Technical drawings and design review</li>
+            <li>Prototype planning and iteration</li>
+          </ul>
+          <div class="actions"><a class="button button-light" href="/prototype-design">Explore prototype design</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>A simpler path from requirement to response.</h2>
+          <p>Early inquiries do not need perfect specifications. They need enough technical context to identify the next useful decision.</p>
+        </div>
+        <div class="process">
+          <article class="process-step reveal"><b>01 / Define</b><h3>Describe the need</h3><p>Share the application, sample, equipment requirement, design problem, or project constraint.</p></article>
+          <article class="process-step reveal"><b>02 / Route</b><h3>Clarify the path</h3><p>Nouvex reviews the request and identifies the product family, analysis path, or engineering support needed.</p></article>
+          <article class="process-step reveal"><b>03 / Respond</b><h3>Confirm next steps</h3><p>The reply can focus on missing specifications, scope, availability, or the next technical conversation.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="inquiry">
+      <div class="wrap inquiry">
+        <div class="inquiry-intro reveal">
+          <p class="eyebrow">Request a quote or consultation</p>
+          <h2>Tell us what you are working on.</h2>
+          <p>Answer a few focused questions. Nouvex will receive the inquiry as a structured brief and reply by email.</p>
+          <div class="inquiry-ref">Inquiry <span id="refId"></span></div>
+        </div>
+        <form class="inquiry-form" id="inquiryForm" novalidate>
+          <div class="form-progress"><b id="stepLabel">Step 1 of 4</b><span id="stepName">Select a path</span></div>
+          <div id="formBody"></div>
+          <input class="website-field" id="website" name="website" type="text" tabindex="-1" autocomplete="off" aria-label="Website (leave empty)" aria-hidden="true">
+          <div class="form-actions">
+            <button class="button button-quiet" id="backButton" type="button">Back</button>
+            <button class="button button-primary" id="nextButton" type="submit">Continue</button>
           </div>
-          <div class="scope-body">
-            <div class="route-line" aria-hidden="true">
-              <div class="node hot">IN</div>
-              <div class="trace" id="trace"></div>
-              <div class="node">OUT</div>
-            </div>
-            <div id="engineBody"></div>
-            <input class="website-field" id="website" name="website" type="text" tabindex="-1" autocomplete="off" aria-label="Website (leave empty)" aria-hidden="true">
-          </div>
-          <div class="plate-foot">
-            <div class="hint" id="hint" aria-live="polite">Select one route to begin.</div>
-            <div class="foot-actions">
-              <button class="btn btn-quiet" id="backBtn" type="button">Back</button>
-              <button class="btn btn-primary" id="nextBtn" type="submit">Continue</button>
-            </div>
-          </div>
+          <div class="form-status" id="formStatus" aria-live="polite"></div>
         </form>
       </div>
     </section>
 
-    <section class="section" id="deliver">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <h2>What gets routed.</h2>
-          <p>Nouvex does not need a visitor to know the perfect service name. The page is built around project signals: the part, the load, the material, the failure mode, and the urgency.</p>
-        </div>
-        <div class="index">
-          <article class="row reveal">
-            <div class="code">01 / Design</div>
-            <div><h3><a class="service-link" href="/mechanical-design-cad">Mechanical design and CAD</a></h3><p>Turn a requirement into drawings a shop can actually quote and build.</p></div>
-            <div class="caps">
-              <span class="cap">Part and assembly modeling</span>
-              <span class="cap">Manufacturing drawings</span>
-              <span class="cap">GD&amp;T and tolerancing</span>
-              <span class="cap">Design for manufacture</span>
-              <span class="cap">Material and fastener selection</span>
-            </div>
-          </article>
-          <article class="row reveal">
-            <div class="code">02 / Analysis</div>
-            <div><h3><a class="service-link" href="/fea-simulation">Simulation and analysis</a></h3><p>Check the design against its loads before anyone cuts metal.</p></div>
-            <div class="caps">
-              <span class="cap">Structural and stress (FEA)</span>
-              <span class="cap">Thermal analysis</span>
-              <span class="cap">Fatigue and safety factor</span>
-              <span class="cap">Tolerance stack-up</span>
-              <span class="cap">Hand calculations and sizing</span>
-            </div>
-          </article>
-          <article class="row reveal">
-            <div class="code">03 / Prototype</div>
-            <div><h3><a class="service-link" href="/prototypes-fixtures">Prototypes and fixtures</a></h3><p>Move a concept to a part you can hold, mount, and test.</p></div>
-            <div class="caps">
-              <span class="cap">3D-printed prototypes</span>
-              <span class="cap">Machined parts</span>
-              <span class="cap">Jigs and fixtures</span>
-              <span class="cap">Test rigs</span>
-              <span class="cap">Short-run production support</span>
-            </div>
-          </article>
-          <article class="row reveal">
-            <div class="code">04 / Diagnosis</div>
-            <div><h3><a class="service-link" href="/failure-analysis">Failure analysis</a></h3><p>Find out why it broke, then change the thing that caused it.</p></div>
-            <div class="caps">
-              <span class="cap">Root-cause investigation</span>
-              <span class="cap">Fracture and wear review</span>
-              <span class="cap">Vibration and alignment</span>
-              <span class="cap">Corrective design change</span>
-              <span class="cap">Inspection criteria</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="specimen" aria-labelledby="specimenTitle">
-      <img src="/assets/tolerance.jpg" alt="Precision CNC tool aligned over a measurement scale" loading="lazy" decoding="async" width="1600" height="1067">
-      <span class="scan" aria-hidden="true"></span>
-      <div class="wrap specimen-copy">
-        <div class="specimen-ref">Tolerance is the deliverable</div>
-        <h2 id="specimenTitle">A drawing is a contract.</h2>
-        <p>Dimensions, tolerances, materials, and finish stated once, so the shop, the buyer, and the inspector are all reading the same part. Most projects go wrong long before manufacturing, in the sentence nobody wrote down.</p>
-      </div>
-    </section>
-
-    <section class="section" id="fit">
-      <div class="wrap proof-grid">
-        <div class="calibration-card reveal">
-          <h3>What the brief contains.</h3>
-          <p>The Scope Engine asks for the minimum viable technical context, saves the inquiry securely, and routes a concise brief to Nouvex for follow-up.</p>
-          <div class="spec-list">
-            <div class="spec"><b>Reference</b><span>A traceable ID for the inquiry, generated up front.</span></div>
-            <div class="spec"><b>Route</b><span>Which of the four engineering paths the problem belongs to.</span></div>
-            <div class="spec"><b>Focus</b><span>The specific work inside that route.</span></div>
-            <div class="spec"><b>Context</b><span>Industry, timeline, and the problem in your own words.</span></div>
-            <div class="spec"><b>Handoff</b><span>Name, company, and a work email for the reply.</span></div>
-          </div>
-        </div>
-        <div class="calibration-card reveal" style="--d: 90ms">
-          <h3>Industries in range.</h3>
-          <p class="section-copy">Use the page wherever the first task is not persuasion theater, but sorting a mechanical problem into the right review path.</p>
-          <div class="industries" aria-label="Supported industries">
-            <span class="industry">Industrial machinery</span>
-            <span class="industry">Manufacturing equipment</span>
-            <span class="industry">Automotive and mobility</span>
-            <span class="industry">Agriculture and food processing</span>
-            <span class="industry">Mining and heavy equipment</span>
-            <span class="industry">Energy and utilities</span>
-            <span class="industry">Packaging and conveyance</span>
-            <span class="industry">Robotics and automation</span>
-            <span class="industry">Consumer hardware</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact-band" id="contact">
-      <div class="wrap contact-grid">
-        <div>
-          <h2>Send a scoped signal.</h2>
-          <p>Use the Scope Engine above to send a qualified project inquiry, or contact Nouvex directly by email.</p>
-        </div>
-        <a class="btn btn-secondary" href="mailto:info@nouvexeng.com">info@nouvexeng.com</a>
+    <section class="cta-band">
+      <div class="wrap cta-grid">
+        <h2>Prefer to start with an email?</h2>
+        <a class="button button-light" href="mailto:info@nouvexeng.com">info@nouvexeng.com</a>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap footer-inner">
-      <span>&copy; <span id="year"></span> Nouvex Engineering LLC</span>
-      <nav class="footer-links" aria-label="Footer navigation">
-        <a href="/#deliver">Services</a>
-        <a href="/privacy">Privacy</a>
-        <a href="mailto:info@nouvexeng.com">Email</a>
-      </nav>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div><a class="brand footer-brand" href="/"><span class="brand-words"><span>Nouvex</span><span class="logo-chip" aria-hidden="true"><span></span></span><span>Engineering</span></span></a><p>Equipment, analysis, and engineering support for technical environments.</p></div>
+        <div><h2>Capabilities</h2><nav class="footer-links" aria-label="Capability links"><a href="/equipment">Equipment</a><a href="/materials-analysis">Materials analysis</a><a href="/prototype-design">Prototype design</a><a href="/consulting">Consulting</a></nav></div>
+        <div><h2>Contact</h2><nav class="footer-links" aria-label="Contact links"><a href="mailto:info@nouvexeng.com">info@nouvexeng.com</a><a href="#inquiry">Request a quote</a><a href="/privacy">Privacy</a></nav></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; <span data-year></span> Nouvex Engineering LLC</span><span>Product availability and specifications are confirmed per inquiry.</span></div>
     </div>
   </footer>
 
+  <script src="/assets/site.js" defer></script>
   <script>
-    // Route keys are the contract with /api/leads (allowedRoutes). Labels are free to change; keys are not.
-    const challenges = {
+    const routes = {
       equipment: {
-        label: "Mechanical design and CAD",
-        route: "01 / Design",
-        symbol: "MD",
-        desc: "Turn a requirement into drawings a shop can build.",
-        focus: ["Part and assembly modeling", "Manufacturing drawings", "GD&T and tolerancing", "Design for manufacture", "Material and fastener selection"]
+        label: "Laboratory & cleanroom equipment",
+        short: "Equipment",
+        description: "Source equipment for a laboratory or controlled environment.",
+        focus: ["Airflow & containment", "Sterilization", "Cold storage", "Core laboratory equipment", "Optical & analytical instruments"]
       },
       analysis: {
-        label: "Simulation and analysis",
-        route: "02 / Analysis",
-        symbol: "SA",
-        desc: "Check a design against its loads before cutting metal.",
-        focus: ["Structural and stress (FEA)", "Thermal analysis", "Fatigue and safety factor", "Tolerance stack-up", "Hand calculations and sizing"]
+        label: "Materials analysis",
+        short: "Analysis",
+        description: "Characterize a material, surface, sample, or failure question.",
+        focus: ["Microscopy", "X-ray analysis", "Surface analysis", "Sample preparation", "Help me choose a method"]
       },
       prototyping: {
-        label: "Prototypes and fixtures",
-        route: "03 / Prototype",
-        symbol: "PF",
-        desc: "Move a concept to a part you can hold and test.",
-        focus: ["3D-printed prototypes", "Machined parts", "Jigs and fixtures", "Test rigs", "Short-run production support"]
+        label: "CAD & prototype design",
+        short: "Prototype design",
+        description: "Develop a concept, CAD model, drawing, or prototype plan.",
+        focus: ["CAD concept development", "Part & assembly modeling", "Technical drawings", "Prototype planning", "Design review"]
       },
       strategy: {
-        label: "Failure analysis",
-        route: "04 / Diagnosis",
-        symbol: "FA",
-        desc: "Find out why it broke, and what to change.",
-        focus: ["Root-cause investigation", "Fracture and wear review", "Vibration and alignment", "Corrective design change", "Inspection criteria"]
+        label: "Engineering consulting",
+        short: "Consulting",
+        description: "Add technical support to a project, selection, or decision.",
+        focus: ["Equipment selection", "Laboratory or cleanroom project support", "Vendor evaluation", "Engineering troubleshooting", "Project planning"]
       }
     };
-    const industries = ["Industrial machinery", "Manufacturing equipment", "Automotive and mobility", "Agriculture and food processing", "Mining and heavy equipment", "Energy and utilities", "Packaging and conveyance", "Robotics and automation", "Consumer hardware"];
+    const industries = ["Research & development", "Manufacturing & quality", "Academic laboratory", "Life sciences", "Pharmaceuticals", "Cleanroom operations", "Materials engineering", "Other"];
     const timelines = ["Exploratory", "Active project", "Urgent - line down"];
+    const STORAGE_KEY = "nouvex:inquiry";
     const state = { challenge: "", focus: "", industry: "", timeline: "", desc: "", name: "", company: "", email: "" };
     let step = 0;
-    let scopeStarted = false;
-    const ref = makeRef();
-
-    const body = document.getElementById("engineBody");
-    const hint = document.getElementById("hint");
-    const trace = document.getElementById("trace");
+    let started = false;
+    let reference = makeReference();
+    restore();
+    const form = document.getElementById("inquiryForm");
+    const formBody = document.getElementById("formBody");
+    const formStatus = document.getElementById("formStatus");
     const stepLabel = document.getElementById("stepLabel");
-    const backBtn = document.getElementById("backBtn");
-    const nextBtn = document.getElementById("nextBtn");
-    const scopeForm = document.getElementById("scope");
+    const stepName = document.getElementById("stepName");
+    const backButton = document.getElementById("backButton");
+    const nextButton = document.getElementById("nextButton");
 
-    document.getElementById("year").textContent = new Date().getFullYear();
-    document.getElementById("refId").textContent = ref;
-    backBtn.addEventListener("click", prevStep);
-    scopeForm.addEventListener("submit", event => {
-      event.preventDefault();
-      nextStep();
-    });
+    document.getElementById("refId").textContent = reference;
+    form.addEventListener("submit", handleSubmit);
+    backButton.addEventListener("click", goBack);
 
-    function makeRef() {
-      const d = new Date();
-      const ymd = `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, "0")}${String(d.getDate()).padStart(2, "0")}`;
-      const rand = Math.random().toString(36).slice(2, 6).toUpperCase();
-      return `NVX-${ymd}-${rand}`;
+    function makeReference() {
+      const now = new Date();
+      const date = `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, "0")}${String(now.getDate()).padStart(2, "0")}`;
+      return `NVX-${date}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`;
     }
 
-    function esc(value) {
-      return String(value || "").replace(/[<>&"]/g, char => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[char]));
+    // The inquiry is the whole point of the page, so a refresh, a back gesture,
+    // or a tap on the nav must not silently destroy a half-finished brief.
+    function save() {
+      try {
+        sessionStorage.setItem(STORAGE_KEY, JSON.stringify({ state, step, reference, started }));
+      } catch (error) { /* private mode or full quota: persistence is a bonus, not a requirement */ }
+    }
+
+    function restore() {
+      let saved;
+      try {
+        saved = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || "null");
+      } catch (error) { return; }
+      if (!saved || typeof saved !== "object" || !saved.state) return;
+      Object.keys(state).forEach(key => {
+        if (typeof saved.state[key] === "string") state[key] = saved.state[key];
+      });
+      if (Number.isInteger(saved.step) && saved.step >= 0 && saved.step <= 3) step = saved.step;
+      if (typeof saved.reference === "string" && saved.reference) reference = saved.reference;
+      started = Boolean(saved.started);
+      // A restored path is required for every later step; without it, start over.
+      if (step > 0 && !routes[state.challenge]) step = 0;
+    }
+
+    function clearSaved() {
+      try { sessionStorage.removeItem(STORAGE_KEY); } catch (error) { /* nothing to clean up */ }
+    }
+
+    function escapeHtml(value) {
+      return String(value || "").replace(/[<>&"]/g, character => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[character]));
     }
 
     function render() {
-      stepLabel.textContent = step < 4 ? `Step ${step + 1} of 4` : "Brief ready";
-      trace.style.setProperty("--progress", `${Math.min(100, 18 + step * 24)}%`);
-      backBtn.disabled = step === 0;
-      nextBtn.style.display = step > 3 ? "none" : "";
-      nextBtn.textContent = step === 3 ? "Generate brief" : "Continue";
-
-      if (step === 0) renderChallenge();
-      if (step === 1) renderFocus();
-      if (step === 2) renderContext();
-      if (step === 3) renderContact();
-      if (step === 4) renderBrief();
+      save();
+      const names = ["Select a path", "Add project context", "Contact details", "Review inquiry"];
+      stepLabel.textContent = `Step ${step + 1} of 4`;
+      stepName.textContent = names[step];
+      backButton.disabled = step === 0;
+      nextButton.textContent = step === 2 ? "Review inquiry" : step === 3 ? "Send inquiry" : "Continue";
+      formStatus.textContent = "";
+      formStatus.className = "form-status";
+      if (step === 0) renderRoutes();
+      if (step === 1) renderDetails();
+      if (step === 2) renderContact();
+      if (step === 3) renderSummary();
     }
 
-    function renderChallenge() {
-      hint.textContent = "Select one route to begin.";
-      body.innerHTML = `
-        <h2 class="question">What needs engineering attention?</h2>
-        <p class="help">Pick the closest route. The next steps narrow the brief.</p>
-        <div class="options">
-          ${Object.entries(challenges).map(([key, item]) => `
-            <button class="option ${state.challenge === key ? "selected" : ""}" type="button" data-key="${key}">
-              <span class="symbol">${item.symbol}</span>
-              <span><b>${item.label}</b><span>${item.desc}</span></span>
-            </button>
-          `).join("")}
+    function renderRoutes() {
+      formBody.innerHTML = `
+        <h3 class="form-question">What do you need help with?</h3>
+        <p class="form-help">Choose the closest path. You do not need to know the exact product or method.</p>
+        <div class="route-options">
+          ${Object.entries(routes).map(([key, route]) => `
+            <button class="route-option ${state.challenge === key ? "selected" : ""}" type="button" data-route="${key}" aria-pressed="${state.challenge === key}">
+              <b>${route.label}</b><span>${route.description}</span>
+            </button>`).join("")}
         </div>`;
-      body.querySelectorAll(".option").forEach(btn => btn.addEventListener("click", () => {
-        state.challenge = btn.dataset.key;
+      formBody.querySelectorAll("[data-route]").forEach(button => button.addEventListener("click", () => {
+        state.challenge = button.dataset.route;
         state.focus = "";
-        if (!scopeStarted) {
-          scopeStarted = true;
-          trackEvent("scope_started", { route: state.challenge });
+        if (!started) {
+          started = true;
+          trackEvent("inquiry_started", { route: state.challenge });
         }
         render();
       }));
     }
 
-    function renderFocus() {
-      const active = challenges[state.challenge];
-      hint.textContent = active ? active.route : "Choose a route first.";
-      body.innerHTML = `
-        <h2 class="question">${active.label}</h2>
-        <p class="help">Select the signal that best matches the current problem.</p>
-        <div class="chips">
-          ${active.focus.map(item => `<button class="chip ${state.focus === item ? "selected" : ""}" type="button" data-value="${esc(item)}">${item}</button>`).join("")}
-        </div>`;
-      body.querySelectorAll(".chip").forEach(btn => btn.addEventListener("click", () => {
-        state.focus = btn.dataset.value;
-        render();
-      }));
-    }
-
-    function renderContext() {
-      hint.textContent = "Add context that changes routing or urgency.";
-      body.innerHTML = `
-        <h2 class="question">What context should travel with it?</h2>
-        <p class="help">This creates a better first reply without requiring a long form.</p>
+    function renderDetails() {
+      const route = routes[state.challenge];
+      formBody.innerHTML = `
+        <h3 class="form-question">Tell us about the ${escapeHtml(route.short.toLowerCase())} need.</h3>
+        <p class="form-help">A few details will make the first response more useful.</p>
         <div class="fields">
-          <div role="group" aria-labelledby="industryLabel">
-            <div id="industryLabel"><label>Industry</label></div>
-            <div class="chips">${industries.map(item => `<button class="chip ${state.industry === item ? "selected" : ""}" type="button" aria-pressed="${state.industry === item}" data-field="industry" data-value="${esc(item)}">${item}</button>`).join("")}</div>
-          </div>
-          <div role="group" aria-labelledby="timelineLabel">
-            <div id="timelineLabel"><label>Timeline</label></div>
-            <div class="chips">${timelines.map(item => `<button class="chip ${state.timeline === item ? "selected" : ""}" type="button" aria-pressed="${state.timeline === item}" data-field="timeline" data-value="${esc(item)}">${item}</button>`).join("")}</div>
-          </div>
-          <div>
-            <label for="desc">Problem description</label>
-            <textarea id="desc" name="description" required minlength="4" placeholder="Example: a conveyor shaft is deflecting under load; need a design review and stress check before machining a replacement.">${esc(state.desc)}</textarea>
-          </div>
+          <div><span class="field-label">Closest focus</span><div class="chip-options" role="group" aria-label="Focus area">${route.focus.map(item => `<button class="chip-option ${state.focus === item ? "selected" : ""}" type="button" data-field="focus" data-value="${escapeHtml(item)}" aria-pressed="${state.focus === item}">${item}</button>`).join("")}</div></div>
+          <div><span class="field-label">Environment or industry</span><div class="chip-options" role="group" aria-label="Environment or industry">${industries.map(item => `<button class="chip-option ${state.industry === item ? "selected" : ""}" type="button" data-field="industry" data-value="${escapeHtml(item)}" aria-pressed="${state.industry === item}">${item}</button>`).join("")}</div></div>
+          <div><span class="field-label">Timeline</span><div class="chip-options" role="group" aria-label="Timeline">${timelines.map(item => `<button class="chip-option ${state.timeline === item ? "selected" : ""}" type="button" data-field="timeline" data-value="${escapeHtml(item)}" aria-pressed="${state.timeline === item}">${item}</button>`).join("")}</div></div>
+          <div class="field"><label for="description">Requirements or problem</label><textarea id="description" name="description" minlength="8" required placeholder="Describe the application, sample, specification, current problem, or result you need.">${escapeHtml(state.desc)}</textarea></div>
         </div>`;
-      body.querySelectorAll(".chip").forEach(btn => btn.addEventListener("click", () => {
-        state[btn.dataset.field] = btn.dataset.value;
-        render();
+      formBody.querySelectorAll("[data-field]").forEach(button => button.addEventListener("click", () => {
+        state[button.dataset.field] = button.dataset.value;
+        save();
+        renderDetails();
       }));
-      body.querySelector("#desc").addEventListener("input", event => {
-        state.desc = event.target.value;
-      });
+      formBody.querySelector("#description").addEventListener("input", event => { state.desc = event.target.value; save(); });
     }
 
     function renderContact() {
-      hint.textContent = "Your details are used only to respond to this inquiry.";
-      body.innerHTML = `
-        <h2 class="question">Where should Nouvex reply?</h2>
-        <p class="help">Share a work email and Nouvex will follow up on this project brief.</p>
+      formBody.innerHTML = `
+        <h3 class="form-question">Where should Nouvex reply?</h3>
+        <p class="form-help">Your information is used to respond to this inquiry.</p>
         <div class="fields">
           <div class="field-row">
-            <div><label for="name">Name</label><input id="name" name="name" autocomplete="name" required value="${esc(state.name)}" placeholder="Jane Engineer"></div>
-            <div><label for="company">Company</label><input id="company" name="company" autocomplete="organization" value="${esc(state.company)}" placeholder="Company name"></div>
+            <div class="field"><label for="contactName">Name</label><input id="contactName" name="name" autocomplete="name" required value="${escapeHtml(state.name)}" placeholder="Your name"></div>
+            <div class="field"><label for="company">Company</label><input id="company" name="company" autocomplete="organization" value="${escapeHtml(state.company)}" placeholder="Company or organization"></div>
           </div>
-          <div><label for="email">Work email</label><input id="email" name="email" type="email" inputmode="email" autocomplete="email" required value="${esc(state.email)}" placeholder="jane@company.com"></div>
+          <div class="field"><label for="email">Work email</label><input id="email" name="email" type="email" inputmode="email" autocomplete="email" required value="${escapeHtml(state.email)}" placeholder="name@company.com"></div>
         </div>`;
-      [["name", "name"], ["company", "company"], ["email", "email"]].forEach(([id, key]) => {
-        body.querySelector(`#${id}`).addEventListener("input", event => {
-          state[key] = event.target.value;
-        });
+      [["contactName", "name"], ["company", "company"], ["email", "email"]].forEach(([id, key]) => {
+        formBody.querySelector(`#${id}`).addEventListener("input", event => { state[key] = event.target.value; save(); });
       });
     }
 
-    function renderBrief() {
-      const c = challenges[state.challenge];
-      hint.textContent = `${ref} is ready to submit.`;
-      body.innerHTML = `
-        <div class="brief">
-          <h3>Scope brief ready</h3>
-          <div class="brief-grid">
-            <div class="brief-row"><b>Route</b><span>${c.route} - ${esc(c.label)}</span></div>
-            <div class="brief-row"><b>Focus</b><span>${esc(state.focus)}</span></div>
-            <div class="brief-row"><b>Industry</b><span>${esc(state.industry)}</span></div>
-            <div class="brief-row"><b>Timeline</b><span>${esc(state.timeline)}</span></div>
-            <div class="brief-row"><b>Problem</b><span>${esc(state.desc)}</span></div>
-            <div class="brief-row"><b>Contact</b><span>${esc(state.name)}${state.company ? " - " + esc(state.company) : ""}${state.email ? " - " + esc(state.email) : ""}</span></div>
-          </div>
-          <div class="brief-actions">
-            <button class="btn btn-primary" type="button" id="sendBrief">Send brief to Nouvex</button>
-            <button class="btn btn-secondary" type="button" id="copyBrief">Copy brief</button>
-            <button class="btn btn-quiet" type="button" id="resetBrief">Start over</button>
-          </div>
+    function renderSummary() {
+      const route = routes[state.challenge];
+      formBody.innerHTML = `
+        <h3 class="form-question">Review the inquiry.</h3>
+        <p class="form-help">Do not submit confidential, export-controlled, or sensitive information through this form.</p>
+        <div class="summary">
+          <div class="summary-row"><b>Path</b><span>${escapeHtml(route.label)}</span></div>
+          <div class="summary-row"><b>Focus</b><span>${escapeHtml(state.focus)}</span></div>
+          <div class="summary-row"><b>Context</b><span>${escapeHtml(state.industry)} · ${escapeHtml(state.timeline)}</span></div>
+          <div class="summary-row"><b>Request</b><span>${escapeHtml(state.desc)}</span></div>
+          <div class="summary-row"><b>Contact</b><span>${escapeHtml(state.name)}${state.company ? ` · ${escapeHtml(state.company)}` : ""}<br>${escapeHtml(state.email)}</span></div>
         </div>`;
-      body.querySelector("#sendBrief").addEventListener("click", sendBrief);
-      body.querySelector("#copyBrief").addEventListener("click", copyBrief);
-      body.querySelector("#resetBrief").addEventListener("click", resetEngine);
     }
 
-    function valid() {
-      if (step === 0) return Boolean(state.challenge);
-      if (step === 1) return Boolean(state.focus);
-      if (step === 2) return Boolean(state.industry && state.timeline && state.desc.trim().length > 3);
-      if (step === 3) return Boolean(state.name.trim() && /\S+@\S+\.\S+/.test(state.email));
-      return true;
+    function validateStep() {
+      if (step === 0) return state.challenge ? "" : "Select one inquiry path.";
+      if (step === 1) return state.focus && state.industry && state.timeline && state.desc.trim().length >= 8 ? "" : "Choose a focus, environment, and timeline, then describe the request.";
+      if (step === 2) return state.name.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(state.email) ? "" : "Add your name and a valid work email.";
+      return "";
     }
 
-    function nextStep() {
-      if (!valid()) {
-        const messages = [
-          "Select one engineering route.",
-          "Select a focus area.",
-          "Choose industry and timeline, then describe the problem.",
-          "Add a name and valid work email."
-        ];
-        hint.textContent = messages[step];
-        hint.style.color = "var(--oxide)";
+    async function handleSubmit(event) {
+      event.preventDefault();
+      const error = validateStep();
+      if (error) {
+        formStatus.textContent = error;
+        formStatus.className = "form-status error";
         return;
       }
-      hint.style.color = "";
-      trackEvent("scope_step_completed", { step: step + 1, route: state.challenge || undefined });
-      step += 1;
-      render();
-    }
-
-    function prevStep() {
-      if (step > 0) {
-        step -= 1;
-        hint.style.color = "";
+      if (step < 3) {
+        trackEvent("inquiry_step_completed", { step: step + 1, route: state.challenge });
+        step += 1;
         render();
+        return;
       }
+      await sendInquiry();
     }
 
-    function resetEngine() {
-      Object.assign(state, { challenge: "", focus: "", industry: "", timeline: "", desc: "", name: "", company: "", email: "" });
-      step = 0;
+    function goBack() {
+      if (step === 0) return;
+      step -= 1;
       render();
     }
 
-    function briefText() {
-      const c = challenges[state.challenge];
-      return [
-        "NOUVEX ENGINEERING - SCOPE BRIEF",
-        `Reference: ${ref}`,
-        `Date: ${new Date().toLocaleString()}`,
-        "",
-        `Route: ${c.route} - ${c.label}`,
-        `Focus: ${state.focus}`,
-        `Industry: ${state.industry}`,
-        `Timeline: ${state.timeline}`,
-        "",
-        "Problem description:",
-        state.desc,
-        "",
-        `Contact: ${state.name}`,
-        `Company: ${state.company}`,
-        `Email: ${state.email}`
-      ].join("\n");
-    }
-
-    async function sendBrief() {
-      const button = body.querySelector("#sendBrief");
-      button.disabled = true;
-      button.textContent = "Sending...";
-      hint.textContent = "Securely submitting your project brief.";
-      hint.style.color = "";
-
+    async function sendInquiry() {
+      nextButton.disabled = true;
+      backButton.disabled = true;
+      nextButton.textContent = "Sending...";
+      formStatus.textContent = "Submitting your inquiry.";
       try {
         const response = await fetch("/api/leads", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            reference: ref,
+            reference,
             challenge: state.challenge,
             focus: state.focus,
             industry: state.industry,
@@ -1120,100 +433,29 @@ FORM: replacement landing, persuade mode, staged as a diagnostic comparison plat
           })
         });
         const result = await response.json().catch(() => ({}));
-
         if (!response.ok) throw new Error(result.error || "Submission failed");
-
-        button.textContent = "Brief sent";
-        trackEvent("scope_submitted", { route: state.challenge, reference: result.reference });
-        hint.textContent = `Inquiry ${result.reference} received. Nouvex will reply by email.`;
-        hint.style.color = "var(--ok)";
+        clearSaved();
+        nextButton.textContent = "Inquiry sent";
+        formStatus.textContent = `Inquiry ${result.reference} received. Nouvex will reply by email.`;
+        formStatus.className = "form-status success";
+        trackEvent("inquiry_submitted", { route: state.challenge, reference: result.reference });
       } catch (error) {
-        trackEvent("scope_submission_failed", { route: state.challenge });
-        button.disabled = false;
-        button.textContent = "Try again";
-        hint.textContent = error.message || "We could not send the brief. Please try again.";
-        hint.style.color = "var(--oxide)";
+        nextButton.disabled = false;
+        backButton.disabled = false;
+        nextButton.textContent = "Try again";
+        formStatus.textContent = error.message || "We could not send the inquiry. Please try again.";
+        formStatus.className = "form-status error";
+        trackEvent("inquiry_submission_failed", { route: state.challenge });
       }
     }
 
-    // Provider-neutral measurement hook. It stores no cookies and makes no network request.
     function trackEvent(name, detail = {}) {
       const payload = { event: name, ...detail };
       if (Array.isArray(window.dataLayer)) window.dataLayer.push(payload);
       window.dispatchEvent(new CustomEvent("nouvex:analytics", { detail: payload }));
     }
 
-    function copyBrief() {
-      navigator.clipboard.writeText(briefText()).then(() => {
-        hint.textContent = "Brief copied to clipboard.";
-        hint.style.color = "var(--ok)";
-      });
-    }
-
     render();
-
-    // Scroll choreography. The specimen band gets the authored moment (a scan wipe);
-    // everything else shares one restrained rise so the peak stays legible.
-    const revealTargets = document.querySelectorAll(".reveal, .specimen");
-
-    if (!("IntersectionObserver" in window)) {
-      revealTargets.forEach(el => el.classList.add("in"));
-    } else {
-      const observer = new IntersectionObserver((entries, self) => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("in");
-          self.unobserve(entry.target);
-        });
-      }, { rootMargin: "0px 0px -12% 0px", threshold: .15 });
-
-      // Stagger only within the routed index; sections elsewhere rise on their own.
-      document.querySelectorAll(".index .row").forEach((row, i) => {
-        row.style.setProperty("--d", `${i * 70}ms`);
-      });
-      revealTargets.forEach(el => observer.observe(el));
-    }
-
-    // Ambient contour field. It is an enhancement, so it loads only when it is
-    // welcome: never under reduced motion, never on small screens, never before
-    // the page has finished loading, and it stops running the moment it scrolls away.
-    (function heroField() {
-      const field = document.querySelector(".hero-field");
-      if (!field) return;
-
-      const unwelcome = window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
-        window.matchMedia("(max-width: 700px)").matches;
-      if (unwelcome) {
-        field.remove();
-        return;
-      }
-
-      function mount() {
-        const frame = document.createElement("iframe");
-        frame.setAttribute("title", "Decorative contour field");
-        frame.setAttribute("tabindex", "-1");
-        frame.setAttribute("aria-hidden", "true");
-        frame.setAttribute("scrolling", "no");
-        frame.src = "/assets/shaders/topographic.html";
-        frame.addEventListener("load", () => {
-          // Slower than the shader's default so it reads as drift, not motion.
-          frame.contentWindow.postMessage({ type: "param", name: "TIME_SPEED", value: 0.05 }, "*");
-          field.classList.add("on");
-        });
-        field.querySelector(".hero-field-inner").appendChild(frame);
-
-        if (!("IntersectionObserver" in window)) return;
-        const run = value => {
-          if (frame.contentWindow) frame.contentWindow.postMessage({ type: "run", value }, "*");
-        };
-        new IntersectionObserver(entries => {
-          entries.forEach(entry => run(entry.isIntersecting));
-        }, { threshold: 0 }).observe(field);
-      }
-
-      if (document.readyState === "complete") mount();
-      else window.addEventListener("load", mount, { once: true });
-    })();
   </script>
 </body>
 </html>

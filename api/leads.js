@@ -3,10 +3,10 @@ const MAX_BODY_BYTES = 16_384;
 const demoLeads = [];
 
 const allowedRoutes = new Map([
-  ["equipment", "01 / Design - Mechanical design and CAD"],
-  ["analysis", "02 / Analysis - Simulation and analysis"],
-  ["prototyping", "03 / Prototype - Prototypes and fixtures"],
-  ["strategy", "04 / Diagnosis - Failure analysis"]
+  ["equipment", "01 / Equipment - Laboratory and cleanroom equipment"],
+  ["analysis", "02 / Analysis - Materials analysis"],
+  ["prototyping", "03 / Design - CAD and prototype design"],
+  ["strategy", "04 / Consulting - Engineering project support"]
 ]);
 const allowedTimelines = new Set(["Exploratory", "Active project", "Urgent - line down"]);
 

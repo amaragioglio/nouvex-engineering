@@ -1,13 +1,17 @@
-# Nouvex Engineering — Landing
-Sitio estático de una página (HTML/CSS/JS, sin build).
-Funcionalidad: "Scope Engine" — cuestionario que genera un brief de proyecto.
-Deploy: Vercel (framework Other, sin build command).
+# Nouvex Engineering
 
-## Terceros
+Static B2B website for laboratory and cleanroom equipment, materials analysis, CAD and prototype design, and engineering consulting.
 
-- `assets/shaders/topographic.html` — campo de contornos del hero. Tomado de
-  [Radiant](https://radiant-shaders.com), MIT, © 2025 Paul Bakaus. Modificado
-  (fondo transparente, paleta Nouvex, control de pausa). El texto de la licencia
-  está en `assets/shaders/LICENSE-radiant.txt` y debe acompañar al archivo.
-- `assets/tolerance.jpg` — foto de [Pexels](https://www.pexels.com/photo/close-up-of-a-cnc-milling-machine-20607184/),
-  licencia Pexels (uso comercial libre, sin atribución obligatoria).
+The site uses plain HTML, CSS, and JavaScript with no build step. Vercel serves the public site and `/api/leads` stores inquiries in Supabase before sending an email notification through Resend.
+
+## Local demo
+
+```powershell
+node dev-server.js
+```
+
+Open `http://127.0.0.1:4174/`. Local submissions remain in memory and are visible at `http://127.0.0.1:4174/api/leads`.
+
+## Third-party photographs
+
+Licensing and source links for stock photography live in `assets/PHOTO_CREDITS.md`. Stock photographs provide general context and do not depict Nouvex facilities, employees, products, or completed projects.
