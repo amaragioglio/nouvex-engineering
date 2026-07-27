@@ -45,6 +45,8 @@ The product name is Nouvex Engineering. The working identity uses a horizontal w
 
 Evidence includes the BIOBASE overview catalog supplied by the owner, a provisional wordmark reference, and the Pen-Tec website as visual direction only. No customer names, metrics, certifications, authorization letters, case studies, product selection, founder biography, facility photographs, or third-party proof assets are currently approved for publication.
 
+Approved and published as of July 27, 2026: the owner's name (Jairo Castillo), the operating location (Austin, Texas, United States), and a response commitment of one to three business days. These appear above the inquiry form, in every page footer, and in the `PostalAddress` of the structured data. No engineering discipline, degree, licensure, or professional title is approved; do not add one until Jairo confirms what is accurate and legally safe to state.
+
 ## Product Principles
 
 - Lead with the application and customer decision, not a model number.
