@@ -31,7 +31,7 @@ The site is static HTML, CSS, and JavaScript deployed on Vercel without a build 
 
 ## Current Product Constraints
 
-The initial equipment catalog is provisional and category-level only. Do not publish specific manufacturers, models, prices, availability, certifications, authorization status, warranties, installation scope, or delivery claims until Jairo confirms them.
+The initial equipment catalog is provisional and category-level only. Do not publish specific manufacturers, models, prices, availability, certifications, authorization status, warranties, installation scope, or delivery claims until Nouvex confirms them.
 
 Do not claim that stock photographs show Nouvex facilities, personnel, products, or projects. Do not claim that analysis uses a specific instrument or is performed in-house until the operating arrangement and technique are confirmed.
 
@@ -45,7 +45,7 @@ The product name is Nouvex Engineering. The working identity uses a horizontal w
 
 Evidence includes the BIOBASE overview catalog supplied by the owner, a provisional wordmark reference, and the Pen-Tec website as visual direction only. No customer names, metrics, certifications, authorization letters, case studies, product selection, founder biography, facility photographs, or third-party proof assets are currently approved for publication.
 
-Approved and published as of July 27, 2026: the owner's name (Jairo Castillo), the operating location (Austin, Texas, United States), and a response commitment of one to three business days. These appear above the inquiry form, in every page footer, and in the `PostalAddress` of the structured data. No engineering discipline, degree, licensure, or professional title is approved; do not add one until Jairo confirms what is accurate and legally safe to state.
+Approved and published as of July 27, 2026: the company name, the operating location (Austin, Texas, United States), and a response commitment of one to three business days. The owner's name is intentionally private and must not appear on the public site. No engineering discipline, degree, licensure, or professional title is approved; do not add one until Nouvex confirms what is accurate and legally safe to state.
 
 ## Product Principles
 
