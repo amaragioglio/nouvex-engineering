@@ -6,7 +6,7 @@ The site should feel like an established technical supplier and engineering part
 
 ## Identity
 
-The working wordmark is `NOUVEX [microchip] ENGINEERING`. Use the horizontal form in navigation and the chip alone for compact identity. Replace the CSS approximation when the original vector logo is available.
+The approved wordmark is `NOUVEX [microchip] ENGINEERING`. Use the supplied horizontal white lockup in the dark navigation and footer, the dark lockup on light surfaces, and the supplied chip artwork for icons and favicons. Preserve the source proportions and clear space; do not recreate the mark with CSS.
 
 ## Palette
 
@@ -19,13 +19,13 @@ The working wordmark is `NOUVEX [microchip] ENGINEERING`. Use the horizontal for
 
 ## Typography
 
-Use Arial/Helvetica system fonts for durable loading. Large display type is reserved for hero and major section headings. Letter spacing is zero. The wordmark may use Arial Narrow where available.
+Use IBM Plex Sans for interface and body copy, with Arial as the fallback. Use Rokkitt Bold for headings, with Georgia as the fallback. Large display type is reserved for the hero and major section headings. Letter spacing remains zero outside the supplied raster wordmark.
 
 ## Layout
 
 - Full-bleed photographic hero with text overlay.
 - Full-width page bands and restrained content widths.
-- Service directory rows instead of a grid of promotional cards.
+- Service directory rows link directly to dedicated service pages; do not repeat full service sections below the directory.
 - Equipment families presented as a technical index.
 - Service pages use dark title bands and unframed content sections.
 - Cards are reserved for interactive inquiry choices.
