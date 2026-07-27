@@ -137,11 +137,84 @@ function emailText(lead) {
   ].join("\n");
 }
 
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function emailRow(label, value) {
+  return `
+    <tr>
+      <td style="width: 120px; padding: 8px 16px 8px 0; color: #687076; font-size: 13px; vertical-align: top;">${escapeHtml(label)}</td>
+      <td style="padding: 8px 0; color: #17191a; font-size: 14px; font-weight: 600; vertical-align: top;">${escapeHtml(value || "Not provided")}</td>
+    </tr>`;
+}
+
+function emailHtml(lead) {
+  const projectRows = [
+    emailRow("Service", lead.route_label),
+    emailRow("Focus", lead.focus),
+    emailRow("Industry", lead.industry),
+    emailRow("Timeline", lead.timeline)
+  ].join("");
+  const contactRows = [
+    emailRow("Name", lead.contact_name),
+    emailRow("Company", lead.company),
+    emailRow("Email", lead.work_email),
+    emailRow("Source", lead.source_url)
+  ].join("");
+
+  return `<!doctype html>
+<html lang="en">
+  <body style="margin: 0; padding: 0; background: #f3f4f4; font-family: Arial, Helvetica, sans-serif;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background: #f3f4f4;">
+      <tr>
+        <td align="center" style="padding: 32px 16px;">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width: 640px; background: #ffffff; border: 1px solid #dfe2e2;">
+            <tr>
+              <td style="padding: 28px 32px 20px; border-bottom: 3px solid #f0b323;">
+                <div style="color: #687076; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">Nouvex Engineering</div>
+                <h1 style="margin: 8px 0 0; color: #17191a; font-size: 24px; line-height: 1.3;">New project inquiry</h1>
+                <div style="margin-top: 12px; color: #687076; font-size: 13px;">Reference <strong style="color: #17191a;">${escapeHtml(lead.reference)}</strong></div>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 24px 32px 8px;">
+                <h2 style="margin: 0 0 8px; color: #17191a; font-size: 16px;">Project details</h2>
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0">${projectRows}</table>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 16px 32px 8px;">
+                <h2 style="margin: 0 0 12px; color: #17191a; font-size: 16px;">What they need</h2>
+                <div style="padding: 16px; background: #f7f8f8; border-left: 3px solid #f0b323; color: #303436; font-size: 14px; line-height: 1.6; white-space: pre-wrap;">${escapeHtml(lead.problem_description)}</div>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 20px 32px 28px;">
+                <h2 style="margin: 0 0 8px; color: #17191a; font-size: 16px;">Contact</h2>
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0">${contactRows}</table>
+                <div style="margin-top: 18px; color: #687076; font-size: 12px; line-height: 1.5;">Reply to this email to contact ${escapeHtml(lead.contact_name)} directly.</div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`;
+}
+
 async function sendNotification(lead) {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.LEAD_FROM_EMAIL;
   if (!apiKey || !from) throw new Error("Email is not configured");
 
+  const subjectCompany = (lead.company || lead.contact_name).replace(/[\r\n]+/g, " ");
   const response = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
@@ -152,8 +225,9 @@ async function sendNotification(lead) {
       from,
       to: [NOTIFICATION_EMAIL],
       reply_to: lead.work_email,
-      subject: `[${lead.reference}] ${lead.route_label} - ${lead.company || lead.contact_name}`,
-      text: emailText(lead)
+      subject: `[${lead.reference}] New inquiry - ${subjectCompany}`,
+      text: emailText(lead),
+      html: emailHtml(lead)
     })
   });
 
@@ -212,11 +286,12 @@ module.exports = async function handler(request, response) {
     });
   }
 
+  let storageSaved = false;
   try {
     await insertLead(lead, request);
+    storageSaved = true;
   } catch (error) {
     console.error(error.message);
-    return response.status(503).json({ error: "We could not save the inquiry. Please try again." });
   }
 
   let notificationSent = false;
@@ -227,11 +302,18 @@ module.exports = async function handler(request, response) {
   } catch (error) {
     console.error(error.message);
   }
-  await updateNotification(lead.reference, notificationSent ? "sent" : "failed", providerId);
+  if (storageSaved) {
+    await updateNotification(lead.reference, notificationSent ? "sent" : "failed", providerId);
+  }
+
+  if (!storageSaved && !notificationSent) {
+    return response.status(503).json({ error: "We could not send the inquiry. Please try again." });
+  }
 
   return response.status(201).json({
     accepted: true,
     reference: lead.reference,
-    notificationSent
+    notificationSent,
+    storageSaved
   });
 };

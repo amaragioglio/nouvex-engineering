@@ -1,6 +1,8 @@
 # Lead capture backend
 
-The guided inquiry submits qualified B2B requests to `POST /api/leads`. The endpoint stores the inquiry in Supabase first, then sends a notification to `info@nouvexeng.com` through Resend.
+The guided inquiry submits qualified B2B requests to `POST /api/leads`. The endpoint stores the inquiry in Supabase and sends an ordered HTML notification, with a plain-text fallback, to `info@nouvexeng.com` through Resend.
+
+Storage and email delivery are independent. If either service is temporarily unavailable, the other is still attempted. The endpoint only rejects the inquiry when both operations fail.
 
 ## Setup
 
@@ -8,7 +10,7 @@ The guided inquiry submits qualified B2B requests to `POST /api/leads`. The endp
 2. Create a Resend account, verify `nouvexeng.com`, and create an API key.
 3. Add the variables from `.env.example` to the Vercel project settings for Production, Preview, and Development as needed.
 4. Deploy the project to Vercel and submit a complete guided inquiry.
-5. Confirm the row appears in `public.project_leads` and `notification_status` is `sent`.
+5. Confirm the row appears in `public.project_leads`, `notification_status` is `sent`, and the ordered notification reaches `info@nouvexeng.com`.
 
 The Supabase secret and Resend API key are server-only. Do not add their real values to `.env.example`, `index.html`, or Git.
 
