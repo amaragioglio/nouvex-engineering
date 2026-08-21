@@ -256,8 +256,10 @@ h1, h2, h3 { font-family: "Rokkitt", Georgia, serif; font-weight: 700; }
   .matrix-scroll-hint { display: block; margin: -10px 0 12px; color: var(--muted); font-size: .8rem; }
   .method-matrix { min-width: 740px; }
   .method-matrix th, .method-matrix td { padding: 14px; }
-  .service-row { grid-template-columns: 45px 1fr 24px; gap: 12px; }
-  .service-row p { grid-column: 1 / 4; }
+  .service-row { grid-template-columns: minmax(0, 1fr) 24px; gap: 8px 12px; }
+  .service-number, .service-row h3 { grid-column: 1; }
+  .service-arrow { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
+  .service-row p { grid-column: 1 / -1; margin-top: 6px; }
   .media-band { min-height: auto; }
   .media-image { min-height: 390px; }
   .media-copy { padding: 48px 20px; }
