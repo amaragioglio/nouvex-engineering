@@ -33,7 +33,7 @@ The site is static HTML, CSS, and JavaScript deployed on Vercel without a build 
 
 The initial equipment catalog is provisional and category-level only. Do not publish specific manufacturers, models, prices, availability, certifications, authorization status, warranties, installation scope, or delivery claims until Nouvex confirms them.
 
-Do not claim that stock photographs show Nouvex facilities, personnel, products, or projects. Do not claim that analysis uses a specific instrument or is performed in-house until the operating arrangement and technique are confirmed.
+Do not claim that stock photographs show Nouvex facilities, personnel, products, or projects. Materials analysis is performed directly by Nouvex personnel at partner laboratories and facilities; do not imply that Nouvex owns the laboratories, facilities, or instruments.
 
 The inquiry route keys (`equipment`, `analysis`, `prototyping`, `strategy`) and timeline strings are a hard contract between `index.html` and `api/leads.js`.
 
@@ -43,7 +43,9 @@ The product name is Nouvex Engineering. The working identity uses a horizontal w
 
 ## Evidence on Hand
 
-Evidence includes the BIOBASE overview catalog supplied by the owner, a provisional wordmark reference, and the Pen-Tec website as visual direction only. No customer names, metrics, certifications, authorization letters, case studies, product selection, founder biography, facility photographs, or third-party proof assets are currently approved for publication.
+Evidence includes the BIOBASE overview catalog supplied by the owner, a provisional wordmark reference, and the Pen-Tec website as visual direction only. No customer names, metrics, certifications, authorization letters, case studies, product selection, founder biography, facility photographs, partner names, laboratory accreditations, or third-party proof assets are currently approved for publication.
+
+Confirmed materials-analysis methods are SEM, TEM/STEM, FIB, ToF-SIMS, TGA, photovoltaic cell testing, four-point probe analysis, FTIR, ICP-MS, UV-Vis, and Keyence digital microscopy. RGA was previously listed in error and must not be published as a Nouvex service. Confirmed deliverables may include images, raw data, measurements, interpretation, reports, and recommendations. Confirmed application experience includes semiconductor, solar, plating, precision cleaning, machining, and aerospace cleaning. Commercial authorization for each individual method, partner identities, credentials, instrument models, turnaround times, and technique-specific certifications remain unconfirmed and must not be inferred.
 
 Approved and published as of July 27, 2026: the company name, the operating location (Austin, Texas, United States), and a response commitment of one to three business days. The owner's name is intentionally private and must not appear on the public site. No engineering discipline, degree, licensure, or professional title is approved; do not add one until Nouvex confirms what is accurate and legally safe to state.
 

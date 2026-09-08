@@ -163,39 +163,12 @@ h1, h2, h3 { font-family: "Rokkitt", Georgia, serif; font-weight: 700; }
 
 .materials-page .section { padding: 72px 0; }
 .materials-page main section[id] { scroll-margin-top: calc(var(--header) + 18px); }
-.materials-directory { background: #fff; }
-.method-index { border-top: 1px solid var(--line); }
-.method-index-row { display: grid; grid-template-columns: 52px minmax(250px, .9fr) minmax(250px, .8fr) 28px; gap: 24px; align-items: center; padding: 22px 14px; margin: 0 -14px; border-bottom: 1px solid var(--line); transition: color .18s ease, background .18s ease; }
-.method-index-row:hover, .method-index-row:focus-visible { color: var(--blue-dark); background: var(--surface-alt); outline: none; }
-.method-index-row:focus-visible { box-shadow: inset 3px 0 0 var(--blue); }
-.method-index-number { color: var(--blue-dark); font-size: .78rem; font-weight: 800; }
-.method-index-title strong, .method-index-title small { display: block; }
-.method-index-title strong { font-family: "Rokkitt", Georgia, serif; font-size: 1.35rem; line-height: 1.1; }
-.method-index-title small { margin-top: 5px; color: var(--muted); font-size: .83rem; }
-.method-index-methods { color: var(--muted); font-size: .92rem; }
-.method-index-arrow { color: var(--blue); font-size: 1.25rem; text-align: right; transition: transform .18s ease; }
-.method-index-row:hover .method-index-arrow, .method-index-row:focus-visible .method-index-arrow { transform: translateY(3px); }
-
-.analysis-flow { display: grid; grid-template-columns: repeat(5, 1fr); margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.analysis-flow li { position: relative; min-height: 178px; padding: 22px 24px 22px 0; }
-.analysis-flow li + li { padding-left: 24px; border-left: 1px solid var(--line); }
-.analysis-flow li:not(:last-child)::after { content: "→"; position: absolute; top: 20px; right: 12px; color: var(--blue); font-size: 1.1rem; }
-.analysis-flow span, .analysis-flow strong, .analysis-flow small { display: block; }
-.analysis-flow span { color: var(--blue-dark); font-size: .76rem; font-weight: 800; }
-.analysis-flow strong { margin-top: 32px; font-family: "Rokkitt", Georgia, serif; font-size: 1.45rem; line-height: 1.05; }
-.analysis-flow small { margin-top: 8px; color: var(--muted); font-size: .82rem; line-height: 1.45; }
-.workflow-note { max-width: 850px; margin: 28px 0 0; color: var(--muted); }
-
-.matrix-scroll-hint { display: none; }
-.method-matrix-wrap { overflow-x: auto; border-top: 3px solid var(--blue-dark); }
-.method-matrix { width: 100%; min-width: 820px; border-collapse: collapse; text-align: left; }
-.method-matrix caption { padding: 0; width: 1px; height: 1px; overflow: hidden; position: absolute; clip: rect(0 0 0 0); white-space: nowrap; }
-.method-matrix th, .method-matrix td { padding: 17px 18px; border-bottom: 1px solid var(--line); vertical-align: top; }
-.method-matrix thead th { color: var(--blue-dark); background: var(--surface-alt); font-size: .75rem; letter-spacing: .04em; text-transform: uppercase; }
-.method-matrix tbody th { width: 24%; font-family: "Rokkitt", Georgia, serif; font-size: 1.08rem; line-height: 1.2; }
-.method-matrix tbody td { color: var(--muted); font-size: .91rem; }
-.method-matrix tbody tr { transition: background .18s ease; }
-.method-matrix tbody tr:hover { background: var(--surface-alt); }
+.materials-services { background: #fff; }
+.analysis-services { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 52px; margin: 0; padding: 0; list-style: none; border-top: 3px solid var(--blue-dark); }
+.analysis-services li { min-height: 112px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.analysis-services strong, .analysis-services small { display: block; }
+.analysis-services strong { font-family: "Rokkitt", Georgia, serif; font-size: 1.35rem; line-height: 1.15; }
+.analysis-services small { margin-top: 8px; color: var(--muted); font-size: .86rem; line-height: 1.45; }
 
 .cta-band { padding: 66px 0; color: #fff; background: var(--blue-dark); }
 .cta-grid { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
@@ -222,14 +195,6 @@ h1, h2, h3 { font-family: "Rokkitt", Georgia, serif; font-weight: 700; }
   .equipment-copy { position: static; }
   .media-band { grid-template-columns: 1fr; }
   .media-band.reverse .media-image { order: 0; }
-  .method-index-row { grid-template-columns: 46px 1fr 26px; gap: 18px; }
-  .method-index-methods { grid-column: 2 / 3; }
-  .method-index-arrow { grid-column: 3; grid-row: 1 / span 2; }
-  .analysis-flow { grid-template-columns: 1fr; }
-  .analysis-flow li { min-height: auto; padding: 20px 48px 20px 0; }
-  .analysis-flow li + li { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
-  .analysis-flow li:not(:last-child)::after { content: "↓"; top: auto; right: 16px; bottom: 12px; }
-  .analysis-flow strong { margin-top: 8px; }
   .service-row { grid-template-columns: 62px 1fr 32px; padding: 26px 0; }
   .service-row p { grid-column: 2 / 4; }
   .process { grid-template-columns: 1fr; }
@@ -250,12 +215,9 @@ h1, h2, h3 { font-family: "Rokkitt", Georgia, serif; font-weight: 700; }
   .hero .button { min-height: 44px; }
   .section { padding: 68px 0; }
   .materials-page .section { padding: 52px 0; }
-  .method-index-row { grid-template-columns: 34px 1fr 20px; gap: 12px; padding: 18px 8px; margin: 0 -8px; }
-  .method-index-title strong { font-size: 1.15rem; }
-  .method-index-methods { font-size: .82rem; }
-  .matrix-scroll-hint { display: block; margin: -10px 0 12px; color: var(--muted); font-size: .8rem; }
-  .method-matrix { min-width: 740px; }
-  .method-matrix th, .method-matrix td { padding: 14px; }
+  .analysis-services { grid-template-columns: 1fr; }
+  .analysis-services li { min-height: auto; }
+  .analysis-services strong { font-size: 1.2rem; }
   .service-row { grid-template-columns: minmax(0, 1fr) 24px; gap: 8px 12px; }
   .service-number, .service-row h3 { grid-column: 1; }
   .service-arrow { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
