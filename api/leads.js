@@ -23,6 +23,7 @@ function validate(input) {
     name: text(input.name, 160),
     company: text(input.company, 200),
     email: text(input.email, 254).toLowerCase(),
+    phone: text(input.phone, 32),
     message: text(input.message, 2_000),
     sourceUrl: text(input.sourceUrl, 500)
   };
@@ -31,6 +32,8 @@ function validate(input) {
   if (!lead.name) errors.push("name");
   if (!lead.company) errors.push("company");
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email)) errors.push("email");
+  const phoneDigits = lead.phone.replace(/\D/g, "").length;
+  if (!/^[0-9+().\-\s]*$/.test(lead.phone) || phoneDigits < 7 || phoneDigits > 15) errors.push("phone");
 
   return { lead, errors };
 }
@@ -51,6 +54,7 @@ function emailText(lead) {
     `Name: ${lead.name}`,
     `Company: ${lead.company}`,
     `Email: ${lead.email}`,
+    `Phone: ${lead.phone}`,
     "",
     "Message:",
     lead.message || "Not provided",
@@ -71,7 +75,8 @@ function emailHtml(lead) {
   const rows = [
     emailRow("Name", lead.name),
     emailRow("Company", lead.company),
-    emailRow("Email", lead.email)
+    emailRow("Email", lead.email),
+    emailRow("Phone", lead.phone)
   ].join("");
   const message = lead.message
     ? `<tr>
@@ -174,7 +179,7 @@ module.exports = async function handler(request, response) {
 
   const { lead, errors } = validate(input);
   if (errors.length) {
-    return response.status(422).json({ error: "Please add your name, company, and a valid work email.", fields: errors });
+    return response.status(422).json({ error: "Please add your name, company, a valid work email, and a phone number.", fields: errors });
   }
 
   if (isLocalDemo(request)) {

@@ -56,7 +56,7 @@
       <div class="wrap hero-content">
         <p class="eyebrow">Equipment · Analysis · Engineering</p>
         <h1 id="heroTitle">Laboratory equipment. Engineering support.</h1>
-        <p class="hero-copy">Nouvex helps laboratories and technical teams source equipment, understand materials, develop prototypes, and move complex projects forward.</p>
+        <p class="hero-copy">Equipping and advancing high-precision industries &mdash; from cleanroom outfitting and advanced material characterization to prototype development and strategic engineering oversight. One partner, end to end.</p>
         <div class="actions">
           <a class="button button-primary" href="#inquiry">Discuss a project</a>
           <a class="button button-light" href="/equipment">Explore equipment</a>
@@ -133,14 +133,17 @@
           </ul>
         </div>
         <form class="inquiry-form" id="inquiryForm" novalidate>
-          <h3 class="form-question">Where should Nouvex reply?</h3>
+          <h3 class="form-question">Contact information</h3>
           <p class="form-help">Your information is used only to respond to this inquiry. Do not include confidential or export-controlled information.</p>
           <div class="fields">
             <div class="field-row">
               <div class="field"><label for="contactName">Name</label><input id="contactName" name="name" autocomplete="name" required maxlength="160" placeholder="Your name"></div>
               <div class="field"><label for="company">Company</label><input id="company" name="company" autocomplete="organization" required maxlength="200" placeholder="Company or organization"></div>
             </div>
-            <div class="field"><label for="email">Work email</label><input id="email" name="email" type="email" inputmode="email" autocomplete="email" required maxlength="254" placeholder="name@company.com"></div>
+            <div class="field-row">
+              <div class="field"><label for="email">Work email</label><input id="email" name="email" type="email" inputmode="email" autocomplete="email" required maxlength="254" placeholder="name@company.com"></div>
+              <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required maxlength="32" placeholder="+1 (512) 555-0100"></div>
+            </div>
             <div class="field"><label for="message">How can we help? <span class="field-optional">(optional)</span></label><textarea id="message" name="message" maxlength="2000" placeholder="Equipment, analysis, design, or consulting need"></textarea></div>
           </div>
           <input class="website-field" id="website" name="website" type="text" tabindex="-1" autocomplete="off" aria-label="Website (leave empty)" aria-hidden="true">
@@ -179,6 +182,7 @@
       const formStatus = document.getElementById("formStatus");
       const field = id => document.getElementById(id);
       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const phoneDigits = value => value.replace(/\D/g, "").length;
       let started = false;
 
       function setStatus(message, type = "") {
@@ -204,13 +208,14 @@
           name: field("contactName").value.trim(),
           company: field("company").value.trim(),
           email: field("email").value.trim(),
+          phone: field("phone").value.trim(),
           message: field("message").value.trim(),
           sourceUrl: window.location.href,
           website: field("website").value
         };
 
-        if (!data.name || !data.company || !emailPattern.test(data.email)) {
-          setStatus("Add your name, company, and a valid work email.", "error");
+        if (!data.name || !data.company || !emailPattern.test(data.email) || phoneDigits(data.phone) < 7 || phoneDigits(data.phone) > 15) {
+          setStatus("Add your name, company, a valid work email, and a phone number.", "error");
           return;
         }
 

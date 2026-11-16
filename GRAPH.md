@@ -42,10 +42,10 @@ flowchart LR
 `POST /api/leads` accepts JSON:
 
 ```text
-name, company, email, message, sourceUrl, website
+name, company, email, phone, message, sourceUrl, website
 ```
 
-`name`, `company`, and a valid `email` are required; `message` is optional. `website` must remain empty; it is the honeypot. Success returns `201 { accepted: true }`. There is no database: the Resend email is the only record, so a failed send returns `503` and the form tells the visitor to retry or email `info@nouvexeng.com`. Secrets stay server-side.
+`name`, `company`, a valid `email`, and `phone` (7-15 digits) are required; `message` is optional. `website` must remain empty; it is the honeypot. Success returns `201 { accepted: true }`. There is no database: the Resend email is the only record, so a failed send returns `503` and the form tells the visitor to retry or email `info@nouvexeng.com`. Secrets stay server-side.
 
 Frontend/backend shared boundary: `index.html` owns the form script and user-facing states; `api/leads.js` owns validation, notification, and HTTP responses. Coordinate before renaming payload fields.
 

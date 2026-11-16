@@ -1,6 +1,6 @@
 # Lead capture backend
 
-The inquiry form (name, company, work email, optional message) submits to `POST /api/leads`. The endpoint validates the input and sends an HTML notification, with a plain-text fallback, to `info@nouvexeng.com` through Resend.
+The inquiry form (name, company, work email, phone, optional message) submits to `POST /api/leads`. The endpoint validates the input and sends an HTML notification, with a plain-text fallback, to `info@nouvexeng.com` through Resend.
 
 There is no database. The email is the only record of an inquiry, so if Resend fails the endpoint returns `503` and the form asks the visitor to retry or email `info@nouvexeng.com` directly.
 

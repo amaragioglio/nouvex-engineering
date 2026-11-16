@@ -35,7 +35,7 @@ The initial equipment catalog is provisional and category-level only. Do not pub
 
 Do not claim that stock photographs show Nouvex facilities, personnel, products, or projects. Materials analysis is performed directly by Nouvex personnel at partner laboratories and facilities; do not imply that Nouvex owns the laboratories, facilities, or instruments.
 
-The inquiry fields (`name`, `company`, `email`, optional `message`) are a contract between `index.html` and `api/leads.js`.
+The inquiry fields (`name`, `company`, `email`, `phone`, optional `message`) are a contract between `index.html` and `api/leads.js`.
 
 ## Brand Commitments
 
