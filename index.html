@@ -216,7 +216,11 @@
     function makeReference() {
       const now = new Date();
       const date = `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, "0")}${String(now.getDate()).padStart(2, "0")}`;
-      return `NVX-${date}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`;
+      const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+      const bytes = new Uint8Array(4);
+      window.crypto.getRandomValues(bytes);
+      // Always exactly 4 characters so the server-side /^NVX-\d{8}-[A-Z0-9]{4}$/ check never rejects it.
+      return `NVX-${date}-${Array.from(bytes, b => alphabet[b % alphabet.length]).join("")}`;
     }
 
     // The inquiry is the whole point of the page, so a refresh, a back gesture,

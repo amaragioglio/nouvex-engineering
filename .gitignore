@@ -21,7 +21,3 @@ graphify-out/
 
 # Local dev helper, not deployed
 dev-server.js
-
-.vercel
-.env*
-!.env.example

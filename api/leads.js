@@ -58,11 +58,11 @@ function validate(input) {
   return { lead, errors };
 }
 
-function supabaseHeaders(secret) {
+function supabaseHeaders(secret, prefer = "return=minimal") {
   const headers = {
     apikey: secret,
     "Content-Type": "application/json",
-    Prefer: "resolution=ignore-duplicates,return=minimal"
+    Prefer: prefer
   };
 
   // Legacy service_role keys are JWTs. Modern sb_secret keys authenticate via apikey.
@@ -80,7 +80,8 @@ async function insertLead(lead, request) {
 
   const response = await fetch(`${supabaseUrl.replace(/\/$/, "")}/rest/v1/project_leads`, {
     method: "POST",
-    headers: supabaseHeaders(supabaseSecret),
+    // return=representation lets us tell a real insert from a skipped duplicate reference.
+    headers: supabaseHeaders(supabaseSecret, "resolution=ignore-duplicates,return=representation"),
     body: JSON.stringify({
       ...lead,
       notification_status: "pending",
@@ -93,11 +94,20 @@ async function insertLead(lead, request) {
     console.error("Supabase insert failed", response.status, detail.slice(0, 500));
     throw new Error("Lead storage failed");
   }
+
+  // A duplicate reference is silently ignored by PostgREST and returns no rows.
+  // Report it as not stored so the email still goes out and we never patch an older lead.
+  const rows = await response.json().catch(() => []);
+  if (!Array.isArray(rows) || rows.length === 0) {
+    console.error("Supabase insert skipped: duplicate reference", lead.reference);
+    throw new Error("Lead storage skipped (duplicate reference)");
+  }
 }
 
 async function updateNotification(reference, status, providerId = null) {
   const supabaseUrl = process.env.SUPABASE_URL;
   const supabaseSecret = process.env.SUPABASE_SECRET_KEY;
+  if (!supabaseUrl || !supabaseSecret) return;
   try {
     const response = await fetch(
       `${supabaseUrl.replace(/\/$/, "")}/rest/v1/project_leads?reference=eq.${encodeURIComponent(reference)}`,
