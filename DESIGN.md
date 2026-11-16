@@ -34,8 +34,7 @@ Use IBM Plex Sans for interface and body copy, with Arial as the fallback. Use R
 
 - Buttons have 6px corners and clear text commands.
 - Navigation becomes a full-screen menu on narrow viewports.
-- The inquiry uses four stages: route, context, contact, review.
-- Focus, timeline, and environment use selectable compact controls.
+- The inquiry is a single short form: name, company, work email, and an optional message.
 - Photography must show the real subject clearly and carry accurate alt text.
 
 ## Trust Rules

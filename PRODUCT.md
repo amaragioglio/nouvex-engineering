@@ -12,7 +12,7 @@ Primary users are laboratory buyers, technical and quality teams, cleanroom oper
 
 ## Product Purpose
 
-Nouvex Engineering is a static B2B website that explains four capability routes and converts an incomplete technical need into a structured inquiry. The guided inquiry submits to `/api/leads` for storage and email follow-up.
+Nouvex Engineering is a static B2B website that explains four capability routes and collects contact details through a short inquiry form. The form submits to `/api/leads`, which emails the inquiry to Nouvex.
 
 ## Positioning
 
@@ -27,7 +27,7 @@ The four public routes are:
 
 ## Operating Context
 
-The site is static HTML, CSS, and JavaScript deployed on Vercel without a build step. The homepage introduces the offer and owns the guided inquiry. Separate pages explain each route and return visitors to that inquiry.
+The site is static HTML, CSS, and JavaScript deployed on Vercel without a build step. The homepage introduces the offer and owns the inquiry form. Separate pages explain each route and return visitors to that inquiry.
 
 ## Current Product Constraints
 
@@ -35,7 +35,7 @@ The initial equipment catalog is provisional and category-level only. Do not pub
 
 Do not claim that stock photographs show Nouvex facilities, personnel, products, or projects. Materials analysis is performed directly by Nouvex personnel at partner laboratories and facilities; do not imply that Nouvex owns the laboratories, facilities, or instruments.
 
-The inquiry route keys (`equipment`, `analysis`, `prototyping`, `strategy`) and timeline strings are a hard contract between `index.html` and `api/leads.js`.
+The inquiry fields (`name`, `company`, `email`, optional `message`) are a contract between `index.html` and `api/leads.js`.
 
 ## Brand Commitments
 

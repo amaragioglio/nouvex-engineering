@@ -2,7 +2,7 @@
 
 Static B2B website for laboratory and cleanroom equipment, materials analysis, CAD and prototype design, and engineering consulting.
 
-The site uses plain HTML, CSS, and JavaScript with no build step. Vercel serves the public site and `/api/leads` stores inquiries in Supabase before sending an email notification through Resend.
+The site uses plain HTML, CSS, and JavaScript with no build step. Vercel serves the public site and `/api/leads` sends each inquiry as an email notification through Resend (no database).
 
 ## Local demo
 

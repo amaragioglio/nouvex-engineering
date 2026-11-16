@@ -1,25 +1,23 @@
 # Lead capture backend
 
-The guided inquiry submits qualified B2B requests to `POST /api/leads`. The endpoint stores the inquiry in Supabase and sends an ordered HTML notification, with a plain-text fallback, to `info@nouvexeng.com` through Resend.
+The inquiry form (name, company, work email, optional message) submits to `POST /api/leads`. The endpoint validates the input and sends an HTML notification, with a plain-text fallback, to `info@nouvexeng.com` through Resend.
 
-Storage and email delivery are independent. If either service is temporarily unavailable, the other is still attempted. The endpoint only rejects the inquiry when both operations fail.
+There is no database. The email is the only record of an inquiry, so if Resend fails the endpoint returns `503` and the form asks the visitor to retry or email `info@nouvexeng.com` directly.
 
 ## Setup
 
-1. Create a Supabase project and run `supabase/schema.sql` in the Supabase SQL Editor.
-2. Create a Resend account, verify `nouvexeng.com`, and create an API key.
-3. Add the variables from `.env.example` to the Vercel project settings for Production, Preview, and Development as needed.
-4. Deploy the project to Vercel and submit a complete guided inquiry.
-5. Confirm the row appears in `public.project_leads`, `notification_status` is `sent`, and the ordered notification reaches `info@nouvexeng.com`.
+1. Create a Resend account, verify `nouvexeng.com` (SPF and DKIM records), and create an API key.
+2. Add the variables from `.env.example` to the Vercel project settings for Production and Preview.
+3. Deploy and submit the form; confirm the notification reaches `info@nouvexeng.com`.
 
-The Supabase secret and Resend API key are server-only. Do not add their real values to `.env.example`, `index.html`, or Git.
+The Resend API key is server-only. Do not add its real value to `.env.example`, `index.html`, or Git.
 
 ## Local demo without services
 
-Run `node dev-server.js`, then open `http://127.0.0.1:4174/#inquiry`. Complete the guided inquiry and submit it. The demo keeps up to 50 test inquiries in memory at `http://127.0.0.1:4174/api/leads`; restarting the server clears them.
+Run `node dev-server.js`, then open `http://127.0.0.1:4174/#inquiry`. The demo keeps up to 50 test inquiries in memory at `http://127.0.0.1:4174/api/leads`; restarting the server clears them.
 
-Demo mode only activates for loopback requests and never contacts Supabase or Resend.
+Demo mode only activates for loopback requests and never contacts Resend.
 
 ## Frontend contract
 
-The canonical request fields, response fields, ownership boundary, and task-specific reading routes live in `GRAPH.md`. Update that file whenever the public contract changes.
+The canonical request fields, response fields, and ownership boundary live in `GRAPH.md`. Update that file whenever the public contract changes.
