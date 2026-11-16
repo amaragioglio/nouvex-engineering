@@ -34,7 +34,7 @@ Use IBM Plex Sans for interface and body copy, with Arial as the fallback. Use R
 
 - Buttons have 6px corners and clear text commands.
 - Navigation becomes a full-screen menu on narrow viewports.
-- The inquiry is a single short form: name, company, work email, phone, and an optional message.
+- The inquiry is a single short form: name, company, work email, phone, and an optional message, with a visible NVX inquiry reference.
 - Photography must show the real subject clearly and carry accurate alt text.
 
 ## Trust Rules

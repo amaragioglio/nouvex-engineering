@@ -18,8 +18,19 @@ function isLocalDemo(request) {
     && ["127.0.0.1", "::1", "::ffff:127.0.0.1"].includes(address);
 }
 
+function makeReference() {
+  const now = new Date();
+  const date = `${now.getUTCFullYear()}${String(now.getUTCMonth() + 1).padStart(2, "0")}${String(now.getUTCDate()).padStart(2, "0")}`;
+  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  const suffix = Array.from(require("crypto").randomBytes(4), b => alphabet[b % alphabet.length]).join("");
+  return `NVX-${date}-${suffix}`;
+}
+
 function validate(input) {
+  const reference = text(input.reference, 32);
   const lead = {
+    // Keep the reference the visitor saw; fall back to a server-side one if it is missing or malformed.
+    reference: /^NVX-\d{8}-[A-Z0-9]{4}$/.test(reference) ? reference : makeReference(),
     name: text(input.name, 160),
     company: text(input.company, 200),
     email: text(input.email, 254).toLowerCase(),
@@ -50,6 +61,7 @@ function escapeHtml(value) {
 function emailText(lead) {
   return [
     "NOUVEX ENGINEERING - NEW INQUIRY",
+    `Reference: ${lead.reference}`,
     "",
     `Name: ${lead.name}`,
     `Company: ${lead.company}`,
@@ -98,6 +110,7 @@ function emailHtml(lead) {
               <td style="padding: 28px 32px 20px; border-bottom: 3px solid #f0b323;">
                 <div style="color: #687076; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">Nouvex Engineering</div>
                 <h1 style="margin: 8px 0 0; color: #17191a; font-size: 24px; line-height: 1.3;">New inquiry</h1>
+                <div style="margin-top: 12px; color: #687076; font-size: 13px;">Reference <strong style="color: #17191a;">${escapeHtml(lead.reference)}</strong></div>
               </td>
             </tr>
             <tr>
@@ -135,7 +148,7 @@ async function sendNotification(lead) {
       from,
       to: [NOTIFICATION_EMAIL],
       reply_to: lead.email,
-      subject: `New inquiry - ${subjectName}`,
+      subject: `[${lead.reference}] New inquiry - ${subjectName}`,
       text: emailText(lead),
       html: emailHtml(lead)
     })
@@ -174,7 +187,7 @@ module.exports = async function handler(request, response) {
 
   // Quietly accept honeypot submissions so automated senders get no useful signal.
   if (text(input.website, 200)) {
-    return response.status(201).json({ accepted: true });
+    return response.status(201).json({ accepted: true, reference: text(input.reference, 32) });
   }
 
   const { lead, errors } = validate(input);
@@ -186,7 +199,7 @@ module.exports = async function handler(request, response) {
     demoLeads.unshift({ ...lead, created_at: new Date().toISOString() });
     demoLeads.splice(50);
     console.log(`[demo] Captured inquiry from ${lead.email}`);
-    return response.status(201).json({ accepted: true, demo: true });
+    return response.status(201).json({ accepted: true, reference: lead.reference, demo: true });
   }
 
   // There is no database: the email is the only record, so a failed send must reach the visitor.
@@ -197,5 +210,5 @@ module.exports = async function handler(request, response) {
     return response.status(503).json({ error: "We could not send the inquiry. Please try again." });
   }
 
-  return response.status(201).json({ accepted: true });
+  return response.status(201).json({ accepted: true, reference: lead.reference });
 };

@@ -137,6 +137,7 @@ h1, h2, h3 { font-family: "Rokkitt", Georgia, serif; font-weight: 700; }
 .form-status { min-height: 26px; margin-top: 15px; color: rgba(255, 255, 255, .7); }
 .form-status.error { color: #ff9990; }
 .form-status.success { color: #73dbb3; }
+.inquiry-ref { margin-top: 28px; color: #8fc6ff; font-size: .78rem; font-weight: 800; text-transform: uppercase; }
 .field-optional { color: rgba(255, 255, 255, .45); font-weight: 400; }
 .website-field { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
 
